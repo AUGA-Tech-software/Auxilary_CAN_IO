@@ -1,8 +1,6 @@
-# Auxilary-CAN-IO
- AUX IO through CAN bus
+FormatVersion = 5.0 // Do not edit this line!
+Title="HW_CC16WP"
 
-
-CAN MESSAGES:
 
 {RECEIVE}
 
