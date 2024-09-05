@@ -1,0 +1,614 @@
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"can_app.c"
+  14              		.text
+  15              		.section	.text.CAN_Callback,"ax",%progbits
+  16              		.align	1
+  17              		.global	CAN_Callback
+  18              		.arch armv7e-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	CAN_Callback:
+  25              		@ args = 0, pretend = 0, frame = 72
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  28 0002 93B0     		sub	sp, sp, #76
+  29 0004 0446     		mov	r4, r0
+  30 0006 0D46     		mov	r5, r1
+  31 0008 1646     		mov	r6, r2
+  32 000a 1F46     		mov	r7, r3
+  33 000c 00EB0012 		add	r2, r0, r0, lsl #4
+  34 0010 224B     		ldr	r3, .L8
+  35 0012 03EB8203 		add	r3, r3, r2, lsl #2
+  36 0016 9E60     		str	r6, [r3, #8]
+  37 0018 FFF7FEFF 		bl	FLEXCAN_DRV_GetErrorStatus
+  38 001c 204B     		ldr	r3, .L8+4
+  39 001e 1842     		tst	r0, r3
+  40 0020 18D0     		beq	.L2
+  41 0022 204B     		ldr	r3, .L8+8
+  42 0024 03EBC402 		add	r2, r3, r4, lsl #3
+  43 0028 5060     		str	r0, [r2, #4]
+  44 002a 0321     		movs	r1, #3
+  45 002c 1046     		mov	r0, r2
+  46 002e FFF7FEFF 		bl	hal_get_timestamp
+  47              	.L3:
+  48 0032 EDB1     		cbz	r5, .L4
+  49 0034 042D     		cmp	r5, #4
+  50 0036 0BD1     		bne	.L1
+  51 0038 2046     		mov	r0, r4
+  52 003a FFF7FEFF 		bl	sfl_can_db_tx_callback
+  53 003e 04EB8403 		add	r3, r4, r4, lsl #2
+  54 0042 194A     		ldr	r2, .L8+12
+  55 0044 02EBC303 		add	r3, r2, r3, lsl #3
+  56 0048 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+  57 004a DBB2     		uxtb	r3, r3
+  58 004c 012B     		cmp	r3, #1
+  59 004e 0BD0     		beq	.L7
+  60              	.L1:
+  61 0050 13B0     		add	sp, sp, #76
+  62              		@ sp needed
+  63 0052 F0BD     		pop	{r4, r5, r6, r7, pc}
+  64              	.L2:
+  65 0054 1348     		ldr	r0, .L8+8
+  66 0056 00EBC403 		add	r3, r0, r4, lsl #3
+  67 005a 0022     		movs	r2, #0
+  68 005c 5A60     		str	r2, [r3, #4]
+  69 005e 0321     		movs	r1, #3
+  70 0060 1846     		mov	r0, r3
+  71 0062 FFF7FEFF 		bl	hal_get_timestamp
+  72 0066 E4E7     		b	.L3
+  73              	.L7:
+  74 0068 2046     		mov	r0, r4
+  75 006a FFF7FEFF 		bl	sfl_can_queue_in_process_bus
+  76 006e EFE7     		b	.L1
+  77              	.L4:
+  78 0070 3946     		mov	r1, r7
+  79 0072 3046     		mov	r0, r6
+  80 0074 FFF7FEFF 		bl	sfl_bl_protocol_s32k_is_msg_for_bl
+  81 0078 0328     		cmp	r0, #3
+  82 007a E9D1     		bne	.L1
+  83 007c 04EB0410 		add	r0, r4, r4, lsl #4
+  84 0080 6946     		mov	r1, sp
+  85 0082 064B     		ldr	r3, .L8
+  86 0084 03EB8000 		add	r0, r3, r0, lsl #2
+  87 0088 FFF7FEFF 		bl	hal_can_receive
+  88 008c 6946     		mov	r1, sp
+  89 008e 2046     		mov	r0, r4
+  90 0090 FFF7FEFF 		bl	sfl_can_db_rx_wrapper
+  91 0094 6846     		mov	r0, sp
+  92 0096 FFF7FEFF 		bl	sfl_bl_protocol_s32k_process_rx_msg
+  93 009a D9E7     		b	.L1
+  94              	.L9:
+  95              		.align	2
+  96              	.L8:
+  97 009c 00000000 		.word	can_handle
+  98 00a0 00FC2000 		.word	2161664
+  99 00a4 00000000 		.word	can_error_handle
+ 100 00a8 00000000 		.word	can_bus_db_const
+ 102              		.section	.text.CAN_Callback_Error,"ax",%progbits
+ 103              		.align	1
+ 104              		.global	CAN_Callback_Error
+ 105              		.syntax unified
+ 106              		.thumb
+ 107              		.thumb_func
+ 108              		.fpu fpv4-sp-d16
+ 110              	CAN_Callback_Error:
+ 111              		@ args = 0, pretend = 0, frame = 16
+ 112              		@ frame_needed = 0, uses_anonymous_args = 0
+ 113 0000 0A29     		cmp	r1, #10
+ 114 0002 00D0     		beq	.L25
+ 115 0004 7047     		bx	lr
+ 116              	.L25:
+ 117 0006 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 118 000a 84B0     		sub	sp, sp, #16
+ 119 000c 0446     		mov	r4, r0
+ 120 000e FFF7FEFF 		bl	FLEXCAN_DRV_GetErrorStatus
+ 121 0012 0646     		mov	r6, r0
+ 122 0014 2D4B     		ldr	r3, .L28
+ 123 0016 1842     		tst	r0, r3
+ 124 0018 02D1     		bne	.L26
+ 125              	.L10:
+ 126 001a 04B0     		add	sp, sp, #16
+ 127              		@ sp needed
+ 128 001c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 129              	.L26:
+ 130 0020 2B48     		ldr	r0, .L28+4
+ 131 0022 00EBC400 		add	r0, r0, r4, lsl #3
+ 132 0026 4660     		str	r6, [r0, #4]
+ 133 0028 0321     		movs	r1, #3
+ 134 002a FFF7FEFF 		bl	hal_get_timestamp
+ 135 002e 16F0400F 		tst	r6, #64
+ 136 0032 04D1     		bne	.L27
+ 137              	.L12:
+ 138 0034 16F0080F 		tst	r6, #8
+ 139 0038 32D0     		beq	.L15
+ 140 003a 0025     		movs	r5, #0
+ 141 003c 20E0     		b	.L17
+ 142              	.L27:
+ 143 003e 254B     		ldr	r3, .L28+8
+ 144 0040 03EB0413 		add	r3, r3, r4, lsl #4
+ 145 0044 9B68     		ldr	r3, [r3, #8]
+ 146 0046 1B68     		ldr	r3, [r3]
+ 147 0048 042B     		cmp	r3, #4
+ 148 004a F3D9     		bls	.L12
+ 149 004c 0425     		movs	r5, #4
+ 150 004e 214B     		ldr	r3, .L28+8
+ 151 0050 03EB0418 		add	r8, r3, r4, lsl #4
+ 152 0054 05E0     		b	.L14
+ 153              	.L13:
+ 154 0056 0135     		adds	r5, r5, #1
+ 155 0058 D8F80830 		ldr	r3, [r8, #8]
+ 156 005c 1B68     		ldr	r3, [r3]
+ 157 005e 9D42     		cmp	r5, r3
+ 158 0060 E8D2     		bcs	.L12
+ 159              	.L14:
+ 160 0062 EFB2     		uxtb	r7, r5
+ 161 0064 3946     		mov	r1, r7
+ 162 0066 2046     		mov	r0, r4
+ 163 0068 FFF7FEFF 		bl	FLEXCAN_DRV_GetTransferStatus
+ 164 006c 0028     		cmp	r0, #0
+ 165 006e F2D0     		beq	.L13
+ 166 0070 3946     		mov	r1, r7
+ 167 0072 2046     		mov	r0, r4
+ 168 0074 FFF7FEFF 		bl	FLEXCAN_DRV_AbortTransfer
+ 169 0078 EDE7     		b	.L13
+ 170              	.L16:
+ 171 007a 0135     		adds	r5, r5, #1
+ 172 007c 032D     		cmp	r5, #3
+ 173 007e 0FD0     		beq	.L15
+ 174              	.L17:
+ 175 0080 EFB2     		uxtb	r7, r5
+ 176 0082 3946     		mov	r1, r7
+ 177 0084 2046     		mov	r0, r4
+ 178 0086 FFF7FEFF 		bl	FLEXCAN_DRV_GetTransferStatus
+ 179 008a 0028     		cmp	r0, #0
+ 180 008c F5D0     		beq	.L16
+ 181 008e 3946     		mov	r1, r7
+ 182 0090 2046     		mov	r0, r4
+ 183 0092 FFF7FEFF 		bl	FLEXCAN_DRV_AbortTransfer
+ 184 0096 2946     		mov	r1, r5
+ 185 0098 2046     		mov	r0, r4
+ 186 009a FFF7FEFF 		bl	sfl_can_rx_int_enable
+ 187 009e ECE7     		b	.L16
+ 188              	.L15:
+ 189 00a0 0D4B     		ldr	r3, .L28+12
+ 190 00a2 93E80700 		ldm	r3, {r0, r1, r2}
+ 191 00a6 04AB     		add	r3, sp, #16
+ 192 00a8 03E90700 		stmdb	r3, {r0, r1, r2}
+ 193 00ac 03EB8400 		add	r0, r3, r4, lsl #2
+ 194 00b0 50F80C4C 		ldr	r4, [r0, #-12]
+ 195 00b4 2046     		mov	r0, r4
+ 196 00b6 FFF7FEFF 		bl	FLEXCAN_ClearErrIntStatusFlag
+ 197 00ba 16F4001F 		tst	r6, #2097152
+ 198 00be ACD0     		beq	.L10
+ 199 00c0 236A     		ldr	r3, [r4, #32]
+ 200 00c2 43F40013 		orr	r3, r3, #2097152
+ 201 00c6 2362     		str	r3, [r4, #32]
+ 202 00c8 A7E7     		b	.L10
+ 203              	.L29:
+ 204 00ca 00BF     		.align	2
+ 205              	.L28:
+ 206 00cc 00FC2000 		.word	2161664
+ 207 00d0 00000000 		.word	can_error_handle
+ 208 00d4 00000000 		.word	struct_can_config_tbl
+ 209 00d8 00000000 		.word	.LANCHOR0
+ 211              		.section	.text.user_can_set_baudrate,"ax",%progbits
+ 212              		.align	1
+ 213              		.global	user_can_set_baudrate
+ 214              		.syntax unified
+ 215              		.thumb
+ 216              		.thumb_func
+ 217              		.fpu fpv4-sp-d16
+ 219              	user_can_set_baudrate:
+ 220              		@ args = 44, pretend = 8, frame = 0
+ 221              		@ frame_needed = 0, uses_anonymous_args = 0
+ 222 0000 82B0     		sub	sp, sp, #8
+ 223 0002 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 224 0004 0446     		mov	r4, r0
+ 225 0006 0793     		str	r3, [sp, #28]
+ 226 0008 00EB0015 		add	r5, r0, r0, lsl #4
+ 227 000c 2048     		ldr	r0, .L35
+ 228 000e 00EB8500 		add	r0, r0, r5, lsl #2
+ 229 0012 0B9D     		ldr	r5, [sp, #44]
+ 230 0014 8562     		str	r5, [r0, #40]
+ 231 0016 089D     		ldr	r5, [sp, #32]
+ 232 0018 C561     		str	r5, [r0, #28]
+ 233 001a 099D     		ldr	r5, [sp, #36]
+ 234 001c 0562     		str	r5, [r0, #32]
+ 235 001e 0A9D     		ldr	r5, [sp, #40]
+ 236 0020 4562     		str	r5, [r0, #36]
+ 237 0022 8361     		str	r3, [r0, #24]
+ 238 0024 109B     		ldr	r3, [sp, #64]
+ 239 0026 C363     		str	r3, [r0, #60]
+ 240 0028 0D9B     		ldr	r3, [sp, #52]
+ 241 002a 0363     		str	r3, [r0, #48]
+ 242 002c 0E9B     		ldr	r3, [sp, #56]
+ 243 002e 4363     		str	r3, [r0, #52]
+ 244 0030 0F9B     		ldr	r3, [sp, #60]
+ 245 0032 8363     		str	r3, [r0, #56]
+ 246 0034 0C9B     		ldr	r3, [sp, #48]
+ 247 0036 C362     		str	r3, [r0, #44]
+ 248 0038 99B1     		cbz	r1, .L31
+ 249 003a 0D22     		movs	r2, #13
+ 250 003c 0273     		strb	r2, [r0, #12]
+ 251 003e 4273     		strb	r2, [r0, #13]
+ 252              	.L32:
+ 253 0040 04EB0416 		add	r6, r4, r4, lsl #4
+ 254 0044 124D     		ldr	r5, .L35
+ 255 0046 05EB8606 		add	r6, r5, r6, lsl #2
+ 256 004a 317B     		ldrb	r1, [r6, #12]	@ zero_extendqisi2
+ 257 004c 3046     		mov	r0, r6
+ 258 004e FFF7FEFF 		bl	hal_can_set_baudrate
+ 259 0052 717B     		ldrb	r1, [r6, #13]	@ zero_extendqisi2
+ 260 0054 3046     		mov	r0, r6
+ 261 0056 FFF7FEFF 		bl	hal_can_set_fd_data_baudrate
+ 262 005a BDE8F840 		pop	{r3, r4, r5, r6, r7, lr}
+ 263 005e 02B0     		add	sp, sp, #8
+ 264 0060 7047     		bx	lr
+ 265              	.L31:
+ 266 0062 531E     		subs	r3, r2, #1
+ 267 0064 DBB2     		uxtb	r3, r3
+ 268 0066 0A2B     		cmp	r3, #10
+ 269 0068 08D8     		bhi	.L33
+ 270 006a 04EB0413 		add	r3, r4, r4, lsl #4
+ 271 006e 0849     		ldr	r1, .L35
+ 272 0070 01EB8303 		add	r3, r1, r3, lsl #2
+ 273 0074 1A73     		strb	r2, [r3, #12]
+ 274 0076 0022     		movs	r2, #0
+ 275 0078 5A73     		strb	r2, [r3, #13]
+ 276 007a E1E7     		b	.L32
+ 277              	.L33:
+ 278 007c 04EB0413 		add	r3, r4, r4, lsl #4
+ 279 0080 034A     		ldr	r2, .L35
+ 280 0082 02EB8303 		add	r3, r2, r3, lsl #2
+ 281 0086 0C22     		movs	r2, #12
+ 282 0088 1A73     		strb	r2, [r3, #12]
+ 283 008a 0022     		movs	r2, #0
+ 284 008c 5A73     		strb	r2, [r3, #13]
+ 285 008e D7E7     		b	.L32
+ 286              	.L36:
+ 287              		.align	2
+ 288              	.L35:
+ 289 0090 00000000 		.word	can_handle
+ 291              		.section	.text.user_can_fd_calculate_baudrate,"ax",%progbits
+ 292              		.align	1
+ 293              		.global	user_can_fd_calculate_baudrate
+ 294              		.syntax unified
+ 295              		.thumb
+ 296              		.thumb_func
+ 297              		.fpu fpv4-sp-d16
+ 299              	user_can_fd_calculate_baudrate:
+ 300              		@ args = 8, pretend = 0, frame = 104
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 303 0002 9BB0     		sub	sp, sp, #108
+ 304 0004 209C     		ldr	r4, [sp, #128]
+ 305 0006 219D     		ldr	r5, [sp, #132]
+ 306 0008 0126     		movs	r6, #1
+ 307 000a 8DF84460 		strb	r6, [sp, #68]
+ 308 000e 1390     		str	r0, [sp, #76]
+ 309 0010 1492     		str	r2, [sp, #80]
+ 310 0012 234A     		ldr	r2, .L42
+ 311 0014 1292     		str	r2, [sp, #72]
+ 312 0016 8DF85410 		strb	r1, [sp, #84]
+ 313 001a 8DF85530 		strb	r3, [sp, #85]
+ 314 001e 12A8     		add	r0, sp, #72
+ 315 0020 FFF7FEFF 		bl	calculate_can_baudrate
+ 316 0024 0022     		movs	r2, #0
+ 317 0026 0DF15601 		add	r1, sp, #86
+ 318 002a 07A8     		add	r0, sp, #28
+ 319 002c FFF7FEFF 		bl	set_can_baudrate_timing
+ 320 0030 3246     		mov	r2, r6
+ 321 0032 0DF15F01 		add	r1, sp, #95
+ 322 0036 0CA8     		add	r0, sp, #48
+ 323 0038 FFF7FEFF 		bl	set_can_baudrate_timing
+ 324 003c 0346     		mov	r3, r0
+ 325 003e 0028     		cmp	r0, #0
+ 326 0040 29D1     		bne	.L37
+ 327 0042 0B9A     		ldr	r2, [sp, #44]
+ 328 0044 2261     		str	r2, [r4, #16]
+ 329 0046 089A     		ldr	r2, [sp, #32]
+ 330 0048 6260     		str	r2, [r4, #4]
+ 331 004a 099A     		ldr	r2, [sp, #36]
+ 332 004c A260     		str	r2, [r4, #8]
+ 333 004e 0A9A     		ldr	r2, [sp, #40]
+ 334 0050 E260     		str	r2, [r4, #12]
+ 335 0052 079A     		ldr	r2, [sp, #28]
+ 336 0054 2260     		str	r2, [r4]
+ 337 0056 109A     		ldr	r2, [sp, #64]
+ 338 0058 2A61     		str	r2, [r5, #16]
+ 339 005a DDF834C0 		ldr	ip, [sp, #52]
+ 340 005e C5F804C0 		str	ip, [r5, #4]
+ 341 0062 0E9F     		ldr	r7, [sp, #56]
+ 342 0064 AF60     		str	r7, [r5, #8]
+ 343 0066 0F9E     		ldr	r6, [sp, #60]
+ 344 0068 EE60     		str	r6, [r5, #12]
+ 345 006a 0C98     		ldr	r0, [sp, #48]
+ 346 006c 2860     		str	r0, [r5]
+ 347 006e 2169     		ldr	r1, [r4, #16]
+ 348 0070 89B9     		cbnz	r1, .L37
+ 349 0072 6368     		ldr	r3, [r4, #4]
+ 350 0074 73B9     		cbnz	r3, .L39
+ 351 0076 A168     		ldr	r1, [r4, #8]
+ 352 0078 69B9     		cbnz	r1, .L37
+ 353 007a E368     		ldr	r3, [r4, #12]
+ 354 007c 73B9     		cbnz	r3, .L40
+ 355 007e 42EA0C03 		orr	r3, r2, ip
+ 356 0082 3B43     		orrs	r3, r3, r7
+ 357 0084 3343     		orrs	r3, r3, r6
+ 358 0086 0343     		orrs	r3, r3, r0
+ 359 0088 2268     		ldr	r2, [r4]
+ 360 008a 1343     		orrs	r3, r3, r2
+ 361 008c 0CBF     		ite	eq
+ 362 008e 0123     		moveq	r3, #1
+ 363 0090 0023     		movne	r3, #0
+ 364 0092 00E0     		b	.L37
+ 365              	.L39:
+ 366 0094 0B46     		mov	r3, r1
+ 367              	.L37:
+ 368 0096 1846     		mov	r0, r3
+ 369 0098 1BB0     		add	sp, sp, #108
+ 370              		@ sp needed
+ 371 009a F0BD     		pop	{r4, r5, r6, r7, pc}
+ 372              	.L40:
+ 373 009c 0B46     		mov	r3, r1
+ 374 009e FAE7     		b	.L37
+ 375              	.L43:
+ 376              		.align	2
+ 377              	.L42:
+ 378 00a0 00B4C404 		.word	80000000
+ 380              		.section	.text.ext_get_filter_and_mask,"ax",%progbits
+ 381              		.align	1
+ 382              		.global	ext_get_filter_and_mask
+ 383              		.syntax unified
+ 384              		.thumb
+ 385              		.thumb_func
+ 386              		.fpu fpv4-sp-d16
+ 388              	ext_get_filter_and_mask:
+ 389              		@ args = 0, pretend = 0, frame = 0
+ 390              		@ frame_needed = 0, uses_anonymous_args = 0
+ 391              		@ link register save eliminated.
+ 392 0000 0023     		movs	r3, #0
+ 393 0002 4361     		str	r3, [r0, #20]
+ 394 0004 8361     		str	r3, [r0, #24]
+ 395 0006 C361     		str	r3, [r0, #28]
+ 396 0008 0362     		str	r3, [r0, #32]
+ 397 000a 0422     		movs	r2, #4
+ 398 000c 80F82420 		strb	r2, [r0, #36]
+ 399 0010 034A     		ldr	r2, .L45
+ 400 0012 0260     		str	r2, [r0]
+ 401 0014 4260     		str	r2, [r0, #4]
+ 402 0016 8360     		str	r3, [r0, #8]
+ 403 0018 C360     		str	r3, [r0, #12]
+ 404 001a 0223     		movs	r3, #2
+ 405 001c 0374     		strb	r3, [r0, #16]
+ 406 001e 7047     		bx	lr
+ 407              	.L46:
+ 408              		.align	2
+ 409              	.L45:
+ 410 0020 355A9D18 		.word	412965429
+ 412              		.section	.text.user_can_init,"ax",%progbits
+ 413              		.align	1
+ 414              		.global	user_can_init
+ 415              		.syntax unified
+ 416              		.thumb
+ 417              		.thumb_func
+ 418              		.fpu fpv4-sp-d16
+ 420              	user_can_init:
+ 421              		@ args = 0, pretend = 0, frame = 48
+ 422              		@ frame_needed = 0, uses_anonymous_args = 0
+ 423 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 424 0004 A5B0     		sub	sp, sp, #148
+ 425 0006 8146     		mov	r9, r0
+ 426 0008 6C4B     		ldr	r3, .L63
+ 427 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 428 000c 3BB9     		cbnz	r3, .L61
+ 429              	.L48:
+ 430 000e 6C4D     		ldr	r5, .L63+4
+ 431 0010 0024     		movs	r4, #0
+ 432 0012 6C4E     		ldr	r6, .L63+8
+ 433 0014 DFF8B0B1 		ldr	fp, .L63+12
+ 434 0018 DFF8B0A1 		ldr	r10, .L63+16
+ 435 001c 77E0     		b	.L56
+ 436              	.L61:
+ 437 001e 674B     		ldr	r3, .L63
+ 438 0020 0022     		movs	r2, #0
+ 439 0022 1A70     		strb	r2, [r3]
+ 440 0024 FFF7FEFF 		bl	sfl_can_db_tables_data_init
+ 441 0028 FFF7FEFF 		bl	sfl_can_db_fifo_init
+ 442 002c 1AA8     		add	r0, sp, #104
+ 443 002e FFF7FEFF 		bl	ext_get_filter_and_mask
+ 444 0032 1AA8     		add	r0, sp, #104
+ 445 0034 FFF7FEFF 		bl	sfl_can_db_init
+ 446 0038 614F     		ldr	r7, .L63+4
+ 447 003a 624C     		ldr	r4, .L63+8
+ 448 003c 0DAE     		add	r6, sp, #52
+ 449 003e 04F1200C 		add	ip, r4, #32
+ 450              	.L49:
+ 451 0042 3546     		mov	r5, r6
+ 452 0044 2068     		ldr	r0, [r4]	@ unaligned
+ 453 0046 6168     		ldr	r1, [r4, #4]	@ unaligned
+ 454 0048 A268     		ldr	r2, [r4, #8]	@ unaligned
+ 455 004a E368     		ldr	r3, [r4, #12]	@ unaligned
+ 456 004c 0FC5     		stmia	r5!, {r0, r1, r2, r3}
+ 457 004e 1034     		adds	r4, r4, #16
+ 458 0050 2E46     		mov	r6, r5
+ 459 0052 6445     		cmp	r4, ip
+ 460 0054 F5D1     		bne	.L49
+ 461 0056 2068     		ldr	r0, [r4]	@ unaligned
+ 462 0058 6168     		ldr	r1, [r4, #4]	@ unaligned
+ 463 005a 03C6     		stmia	r6!, {r0, r1}
+ 464 005c 6C46     		mov	r4, sp
+ 465 005e 07F11005 		add	r5, r7, #16
+ 466 0062 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 467 0064 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 468 0066 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 469 0068 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 470 006a 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 471 006c 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 472 006e 2B68     		ldr	r3, [r5]
+ 473 0070 2360     		str	r3, [r4]
+ 474 0072 97E80F00 		ldm	r7, {r0, r1, r2, r3}
+ 475 0076 FFF7FEFF 		bl	sfl_can_db_tables_data_init_baudrate
+ 476 007a A5F14007 		sub	r7, r5, #64
+ 477 007e 514B     		ldr	r3, .L63+8
+ 478 0080 03F12804 		add	r4, r3, #40
+ 479 0084 0DAE     		add	r6, sp, #52
+ 480 0086 03F1480C 		add	ip, r3, #72
+ 481              	.L50:
+ 482 008a 3546     		mov	r5, r6
+ 483 008c 2068     		ldr	r0, [r4]	@ unaligned
+ 484 008e 6168     		ldr	r1, [r4, #4]	@ unaligned
+ 485 0090 A268     		ldr	r2, [r4, #8]	@ unaligned
+ 486 0092 E368     		ldr	r3, [r4, #12]	@ unaligned
+ 487 0094 0FC5     		stmia	r5!, {r0, r1, r2, r3}
+ 488 0096 1034     		adds	r4, r4, #16
+ 489 0098 2E46     		mov	r6, r5
+ 490 009a 6445     		cmp	r4, ip
+ 491 009c F5D1     		bne	.L50
+ 492 009e 2068     		ldr	r0, [r4]	@ unaligned
+ 493 00a0 6168     		ldr	r1, [r4, #4]	@ unaligned
+ 494 00a2 03C6     		stmia	r6!, {r0, r1}
+ 495 00a4 6C46     		mov	r4, sp
+ 496 00a6 07F15405 		add	r5, r7, #84
+ 497 00aa 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 498 00ac 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 499 00ae 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 500 00b0 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 501 00b2 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 502 00b4 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 503 00b6 2B68     		ldr	r3, [r5]
+ 504 00b8 2360     		str	r3, [r4]
+ 505 00ba 07F14403 		add	r3, r7, #68
+ 506 00be 0FCB     		ldm	r3, {r0, r1, r2, r3}
+ 507 00c0 FFF7FEFF 		bl	sfl_can_db_tables_data_init_baudrate
+ 508 00c4 A3E7     		b	.L48
+ 509              	.L54:
+ 510 00c6 A300     		lsls	r3, r4, #2
+ 511 00c8 1993     		str	r3, [sp, #100]
+ 512 00ca 2344     		add	r3, r3, r4
+ 513 00cc 16F83330 		ldrb	r3, [r6, r3, lsl #3]	@ zero_extendqisi2
+ 514 00d0 0121     		movs	r1, #1
+ 515 00d2 39F82300 		ldrh	r0, [r9, r3, lsl #2]
+ 516 00d6 FFF7FEFF 		bl	hal_io_do_set
+ 517 00da 199A     		ldr	r2, [sp, #100]
+ 518 00dc 9044     		add	r8, r8, r2
+ 519 00de 16F83830 		ldrb	r3, [r6, r8, lsl #3]	@ zero_extendqisi2
+ 520 00e2 09EB8303 		add	r3, r9, r3, lsl #2
+ 521 00e6 0121     		movs	r1, #1
+ 522 00e8 5888     		ldrh	r0, [r3, #2]
+ 523 00ea FFF7FEFF 		bl	hal_io_do_set
+ 524              	.L52:
+ 525 00ee C7F810B0 		str	fp, [r7, #16]
+ 526 00f2 0021     		movs	r1, #0
+ 527 00f4 3846     		mov	r0, r7
+ 528 00f6 FFF7FEFF 		bl	hal_can_set_receive_callback
+ 529 00fa C7F814A0 		str	r10, [r7, #20]
+ 530 00fe 0021     		movs	r1, #0
+ 531 0100 3846     		mov	r0, r7
+ 532 0102 FFF7FEFF 		bl	hal_can_set_error_callback
+ 533              	.L51:
+ 534 0106 0134     		adds	r4, r4, #1
+ 535 0108 4435     		adds	r5, r5, #68
+ 536 010a 022C     		cmp	r4, #2
+ 537 010c 53D0     		beq	.L62
+ 538              	.L56:
+ 539 010e A046     		mov	r8, r4
+ 540 0110 04EB8403 		add	r3, r4, r4, lsl #2
+ 541 0114 06EBC302 		add	r2, r6, r3, lsl #3
+ 542 0118 16F83330 		ldrb	r3, [r6, r3, lsl #3]	@ zero_extendqisi2
+ 543 011c 2F46     		mov	r7, r5
+ 544 011e 6B60     		str	r3, [r5, #4]
+ 545 0120 5378     		ldrb	r3, [r2, #1]	@ zero_extendqisi2
+ 546 0122 DBB2     		uxtb	r3, r3
+ 547 0124 012B     		cmp	r3, #1
+ 548 0126 EED1     		bne	.L51
+ 549 0128 04EB8403 		add	r3, r4, r4, lsl #2
+ 550 012c 16F83330 		ldrb	r3, [r6, r3, lsl #3]	@ zero_extendqisi2
+ 551 0130 39F82330 		ldrh	r3, [r9, r3, lsl #2]
+ 552 0134 592B     		cmp	r3, #89
+ 553 0136 DAD0     		beq	.L52
+ 554 0138 04EB8403 		add	r3, r4, r4, lsl #2
+ 555 013c 16F83330 		ldrb	r3, [r6, r3, lsl #3]	@ zero_extendqisi2
+ 556 0140 09EB8303 		add	r3, r9, r3, lsl #2
+ 557 0144 5B88     		ldrh	r3, [r3, #2]
+ 558 0146 592B     		cmp	r3, #89
+ 559 0148 D1D0     		beq	.L52
+ 560 014a 04EB8403 		add	r3, r4, r4, lsl #2
+ 561 014e 16F83330 		ldrb	r3, [r6, r3, lsl #3]	@ zero_extendqisi2
+ 562 0152 DBB2     		uxtb	r3, r3
+ 563 0154 012B     		cmp	r3, #1
+ 564 0156 19D0     		beq	.L53
+ 565 0158 5AB2     		sxtb	r2, r3
+ 566 015a 002A     		cmp	r2, #0
+ 567 015c B3D0     		beq	.L54
+ 568 015e 022B     		cmp	r3, #2
+ 569 0160 C5D1     		bne	.L52
+ 570 0162 A300     		lsls	r3, r4, #2
+ 571 0164 1993     		str	r3, [sp, #100]
+ 572 0166 2344     		add	r3, r3, r4
+ 573 0168 16F83330 		ldrb	r3, [r6, r3, lsl #3]	@ zero_extendqisi2
+ 574 016c 0121     		movs	r1, #1
+ 575 016e 39F82300 		ldrh	r0, [r9, r3, lsl #2]
+ 576 0172 FFF7FEFF 		bl	hal_io_do_set
+ 577 0176 199A     		ldr	r2, [sp, #100]
+ 578 0178 9044     		add	r8, r8, r2
+ 579 017a 16F83830 		ldrb	r3, [r6, r8, lsl #3]	@ zero_extendqisi2
+ 580 017e 09EB8303 		add	r3, r9, r3, lsl #2
+ 581 0182 0121     		movs	r1, #1
+ 582 0184 5888     		ldrh	r0, [r3, #2]
+ 583 0186 FFF7FEFF 		bl	hal_io_do_set
+ 584 018a B0E7     		b	.L52
+ 585              	.L53:
+ 586 018c A300     		lsls	r3, r4, #2
+ 587 018e 1993     		str	r3, [sp, #100]
+ 588 0190 2344     		add	r3, r3, r4
+ 589 0192 16F83330 		ldrb	r3, [r6, r3, lsl #3]	@ zero_extendqisi2
+ 590 0196 0121     		movs	r1, #1
+ 591 0198 39F82300 		ldrh	r0, [r9, r3, lsl #2]
+ 592 019c FFF7FEFF 		bl	hal_io_do_set
+ 593 01a0 199A     		ldr	r2, [sp, #100]
+ 594 01a2 9044     		add	r8, r8, r2
+ 595 01a4 16F83830 		ldrb	r3, [r6, r8, lsl #3]	@ zero_extendqisi2
+ 596 01a8 09EB8303 		add	r3, r9, r3, lsl #2
+ 597 01ac 0121     		movs	r1, #1
+ 598 01ae 5888     		ldrh	r0, [r3, #2]
+ 599 01b0 FFF7FEFF 		bl	hal_io_do_set
+ 600 01b4 9BE7     		b	.L52
+ 601              	.L62:
+ 602 01b6 25B0     		add	sp, sp, #148
+ 603              		@ sp needed
+ 604 01b8 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 605              	.L64:
+ 606              		.align	2
+ 607              	.L63:
+ 608 01bc 00000000 		.word	.LANCHOR1
+ 609 01c0 00000000 		.word	can_handle
+ 610 01c4 00000000 		.word	can_bus_db_const
+ 611 01c8 00000000 		.word	CAN_Callback
+ 612 01cc 00000000 		.word	CAN_Callback_Error
+ 614              		.comm	can_error_handle,24,4
+ 615              		.section	.rodata
+ 616              		.align	2
+ 617              		.set	.LANCHOR0,. + 0
+ 618              	.LC0:
+ 619 0000 00400240 		.word	1073889280
+ 620 0004 00500240 		.word	1073893376
+ 621 0008 00B00240 		.word	1073917952
+ 622              		.section	.data.once.13093,"aw"
+ 623              		.set	.LANCHOR1,. + 0
+ 626              	once.13093:
+ 627 0000 01       		.byte	1
+ 628              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2019-q3-update) 8.3.1 20190703 (release) [gc

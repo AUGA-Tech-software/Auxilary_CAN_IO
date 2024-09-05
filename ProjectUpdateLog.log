@@ -1,0 +1,695 @@
+### Update from 2024-09-05 9:34:56 ###
+### Loading Update Information ###
+
+### Update Informations ###
+Value: Update | Current
+IODef DBVersion: 48 | 48
+IODef SWVersion: 30 | 30
+Version: V0.0.0 | V1.0.0
+LibraryVersion: 4.15.1 | 4.15.0
+StructureVersion: 1 | 1
+
+### Listing File Changes ###
+
++ Files to be added:
+
++ Files to be removed:
+ - lastbuildparams.txt                                                   
+ - bin\.dirStampFile                                                     
+ - bin\CC16WP_C_AUX_IO.elf                                               
+ - bin\CC16WP_C_AUX_IO.elf.map                                           
+ - bin\CC16WP_C_AUX_IO.hex                                               
+ - bin\CC16WP_C_AUX_IO.s19                                               
+ - bin\obj\.dirStampFile                                                 
+ - bin\obj\adc_app.d                                                     
+ - bin\obj\adc_app.o                                                     
+ - bin\obj\adc_app.o.lst                                                 
+ - bin\obj\can_app.d                                                     
+ - bin\obj\can_app.o                                                     
+ - bin\obj\can_app.o.lst                                                 
+ - bin\obj\can_db_tables.d                                               
+ - bin\obj\can_db_tables.o                                               
+ - bin\obj\can_db_tables.o.lst                                           
+ - bin\obj\ftm_app.d                                                     
+ - bin\obj\ftm_app.o                                                     
+ - bin\obj\ftm_app.o.lst                                                 
+ - bin\obj\graph_code.d                                                  
+ - bin\obj\graph_code.o                                                  
+ - bin\obj\graph_code.o.lst                                              
+ - bin\obj\graph_support.d                                               
+ - bin\obj\graph_support.o                                               
+ - bin\obj\graph_support.o.lst                                           
+ - bin\obj\io_tables.d                                                   
+ - bin\obj\io_tables.o                                                   
+ - bin\obj\io_tables.o.lst                                               
+ - bin\obj\io_variables.d                                                
+ - bin\obj\io_variables.o                                                
+ - bin\obj\io_variables.o.lst                                            
+ - bin\obj\irq_cfg.d                                                     
+ - bin\obj\irq_cfg.o                                                     
+ - bin\obj\irq_cfg.o.lst                                                 
+ - bin\obj\lin_app.d                                                     
+ - bin\obj\lin_app.o                                                     
+ - bin\obj\lin_app.o.lst                                                 
+ - bin\obj\lin_db_tables.d                                               
+ - bin\obj\lin_db_tables.o                                               
+ - bin\obj\lin_db_tables.o.lst                                           
+ - bin\obj\lin_diagnose.d                                                
+ - bin\obj\lin_diagnose.o                                                
+ - bin\obj\lin_diagnose.o.lst                                            
+ - bin\obj\main.d                                                        
+ - bin\obj\main.o                                                        
+ - bin\obj\main.o.lst                                                    
+ - bin\obj\module_code.d                                                 
+ - bin\obj\module_code.o                                                 
+ - bin\obj\module_code.o.lst                                             
+ - bin\obj\modulhardwarecode.d                                           
+ - bin\obj\modulhardwarecode.o                                           
+ - bin\obj\modulhardwarecode.o.lst                                       
+ - bin\obj\motor_app.d                                                   
+ - bin\obj\motor_app.o                                                   
+ - bin\obj\motor_app.o.lst                                               
+ - bin\obj\sci_app.d                                                     
+ - bin\obj\sci_app.o                                                     
+ - bin\obj\sci_app.o.lst                                                 
+ - bin\obj\sfl_bl_protocol_s32k.d                                        
+ - bin\obj\sfl_bl_protocol_s32k.o                                        
+ - bin\obj\sfl_bl_protocol_s32k.o.lst                                    
+ - bin\obj\sfl_can_db.d                                                  
+ - bin\obj\sfl_can_db.o                                                  
+ - bin\obj\sfl_can_db.o.lst                                              
+ - bin\obj\sfl_can_db_tables_data.d                                      
+ - bin\obj\sfl_can_db_tables_data.o                                      
+ - bin\obj\sfl_can_db_tables_data.o.lst                                  
+ - bin\obj\sfl_db.d                                                      
+ - bin\obj\sfl_db.o                                                      
+ - bin\obj\sfl_db.o.lst                                                  
+ - bin\obj\sfl_fifo.d                                                    
+ - bin\obj\sfl_fifo.o                                                    
+ - bin\obj\sfl_fifo.o.lst                                                
+ - bin\obj\sfl_math.d                                                    
+ - bin\obj\sfl_math.o                                                    
+ - bin\obj\sfl_math.o.lst                                                
+ - bin\obj\sfl_ramp_generator.d                                          
+ - bin\obj\sfl_ramp_generator.o                                          
+ - bin\obj\sfl_ramp_generator.o.lst                                      
+ - bin\obj\sfl_timer.d                                                   
+ - bin\obj\sfl_timer.o                                                   
+ - bin\obj\sfl_timer.o.lst                                               
+ - bin\obj\spi_app.d                                                     
+ - bin\obj\spi_app.o                                                     
+ - bin\obj\spi_app.o.lst                                                 
+ - bin\obj\user_api_ai.d                                                 
+ - bin\obj\user_api_ai.o                                                 
+ - bin\obj\user_api_ai.o.lst                                             
+ - bin\obj\user_api_can.d                                                
+ - bin\obj\user_api_can.o                                                
+ - bin\obj\user_api_can.o.lst                                            
+ - bin\obj\user_api_eeprom.d                                             
+ - bin\obj\user_api_eeprom.o                                             
+ - bin\obj\user_api_eeprom.o.lst                                         
+ - bin\obj\user_api_io.d                                                 
+ - bin\obj\user_api_io.o                                                 
+ - bin\obj\user_api_io.o.lst                                             
+ - bin\obj\user_api_motor.d                                              
+ - bin\obj\user_api_motor.o                                              
+ - bin\obj\user_api_motor.o.lst                                          
+ - bin\obj\user_api_pwm.d                                                
+ - bin\obj\user_api_pwm.o                                                
+ - bin\obj\user_api_pwm.o.lst                                            
+ - bin\obj\user_api_system.d                                             
+ - bin\obj\user_api_system.o                                             
+ - bin\obj\user_api_system.o.lst                                         
+ - bin\obj\user_api_timer.d                                              
+ - bin\obj\user_api_timer.o                                              
+ - bin\obj\user_api_timer.o.lst                                          
+ - bin\obj\user_api_uart.d                                               
+ - bin\obj\user_api_uart.o                                               
+ - bin\obj\user_api_uart.o.lst                                           
+ - bin\obj\user_api_util.d                                               
+ - bin\obj\user_api_util.o                                               
+ - bin\obj\user_api_util.o.lst                                           
+ - bin\obj\user_code.d                                                   
+ - bin\obj\user_code.o                                                   
+ - bin\obj\user_code.o.lst                                               
+
++ Files to be replaced:
+ - bin\lib\16\S32K144_lib\lib_S32K144_bl_protocol.a                      
+ - bin\lib\16\S32K144_lib\lib_S32K144_bsp_cfg.a                          
+ - bin\lib\16\S32K144_lib\lib_S32K144_hal_impl_s32k.a                    
+ - bin\lib\16\S32K144_lib\lib_S32K144_sdk.a                              
+ - bin\lib\16\S32K148_lib\lib_S32K148_bl_protocol.a                      
+ - bin\lib\16\S32K148_lib\lib_S32K148_bsp_cfg.a                          
+ - bin\lib\16\S32K148_lib\lib_S32K148_hal_impl_s32k.a                    
+ - bin\lib\16\S32K148_lib\lib_S32K148_sdk.a                              
+ - bin\lib\40\S32K144_lib\lib_S32K144_bl_protocol.a                      
+ - bin\lib\40\S32K144_lib\lib_S32K144_bsp_cfg.a                          
+ - bin\lib\40\S32K144_lib\lib_S32K144_hal_impl_s32k.a                    
+ - bin\lib\40\S32K144_lib\lib_S32K144_sdk.a                              
+ - bin\lib\40\S32K148_lib\lib_S32K148_bl_protocol.a                      
+ - bin\lib\40\S32K148_lib\lib_S32K148_bsp_cfg.a                          
+ - bin\lib\40\S32K148_lib\lib_S32K148_hal_impl_s32k.a                    
+ - bin\lib\40\S32K148_lib\lib_S32K148_sdk.a                              
+ - src\app\can_app.c                                                     
+ - src\app\motor_app.c                                                   
+ - src\app\motor_app.h                                                   
+ - src\app\version.h                                                     
+ - src\ds\can\can_db_tables.c                                            
+ - src\ds\can\can_db_tables.h                                            
+ - src\ds\dsl\dsl_cfg.h                                                  
+ - src\ds\io\io_tables.c                                                 
+ - src\ds\io\io_tables.h                                                 
+ - src\ds\io\io_variables.c                                              
+ - src\ds\io\io_variables.h                                              
+ - src\ds\lin\lin_db_tables.c                                            
+ - src\ds\lin\lin_db_tables.h                                            
+ - src\ds\lin\lin_diagnose.c                                             
+ - src\ds\lin\lin_diagnose.h                                             
+ - src\ds\module\modulhardwarecode.c                                     
+ - src\ds\module\modulhardwarecode.h                                     
+ - src\ds\user\user_code.c                                               
+ - src\ds\user\user_code.h                                               
+ - src\hal_def\hal_watchdog.h                                            
+ - src\sfl\can_db\sfl_can_db.c                                           
+ - src\sfl\can_db\sfl_can_db_tables_data.c                               
+ - src\sfl\can_db\sfl_can_db_tables_data.h                               
+
+### Listing Done ###
+
+Ready for Update
+### Starting ###
+
+Search fitting Template
+
+######
+
++ unziping Template to temp dir
++ unzip done to: C:\Users\d.vaitiekus\AppData\Local\Temp\98ba1f31-6599-4a93-be15-257aaf6e9cf7
+
+### Loading Projects ###
+
++ CC16WP_CAN_FD_250_500_401811 was loaded from zip
+
+### Creating Backups ###
+
++ backup created: C:\Users\d.vaitiekus\OneDrive - AB AUGA Group\Documents\GIT PROJECTS\CC16WP_C_AUX_IO\..\CC16WP_C_AUX_IO_BACKUP_20240905T093425
+
+### Pre Update Steps ###
+
+
+### Deleting old BSW Files ###
+
++ build deleted
++ src deleted
+Error: 
+The process cannot access the file 'C:\Users\d.vaitiekus\OneDrive - AB AUGA Group\Documents\GIT PROJECTS\CC16WP_C_AUX_IO\bin' because it is being used by another process.
+
+=== Update FAILED ===
+
+
+
+### Update from 2024-09-05 9:36:03 ###
+### Loading Update Information ###
+
+### Update Informations ###
+Value: Update | Current
+IODef DBVersion: 48 | 48
+IODef SWVersion: 30 | 30
+Version: V0.0.0 | V1.0.0
+LibraryVersion: 4.15.1 | 0.0.0
+StructureVersion: 1 | 1
+
+### Listing File Changes ###
+
++ Files to be added:
+ - bin\lib\16\S32K144_lib\.dirStampFile                                  
+ - bin\lib\16\S32K144_lib\lib_S32K144_bl_protocol.a                      
+ - bin\lib\16\S32K144_lib\lib_S32K144_bsp_cfg.a                          
+ - bin\lib\16\S32K144_lib\lib_S32K144_hal_impl_s32k.a                    
+ - bin\lib\16\S32K144_lib\lib_S32K144_sdk.a                              
+ - bin\lib\16\S32K148_lib\.dirStampFile                                  
+ - bin\lib\16\S32K148_lib\lib_S32K148_bl_protocol.a                      
+ - bin\lib\16\S32K148_lib\lib_S32K148_bsp_cfg.a                          
+ - bin\lib\16\S32K148_lib\lib_S32K148_hal_impl_s32k.a                    
+ - bin\lib\16\S32K148_lib\lib_S32K148_sdk.a                              
+ - bin\lib\40\S32K144_lib\.dirStampFile                                  
+ - bin\lib\40\S32K144_lib\lib_S32K144_bl_protocol.a                      
+ - bin\lib\40\S32K144_lib\lib_S32K144_bsp_cfg.a                          
+ - bin\lib\40\S32K144_lib\lib_S32K144_hal_impl_s32k.a                    
+ - bin\lib\40\S32K144_lib\lib_S32K144_sdk.a                              
+ - bin\lib\40\S32K148_lib\.dirStampFile                                  
+ - bin\lib\40\S32K148_lib\lib_S32K148_bl_protocol.a                      
+ - bin\lib\40\S32K148_lib\lib_S32K148_bsp_cfg.a                          
+ - bin\lib\40\S32K148_lib\lib_S32K148_hal_impl_s32k.a                    
+ - bin\lib\40\S32K148_lib\lib_S32K148_sdk.a                              
+ - build\S32K142\S32K142_32_flash.ld                                     
+ - build\S32K144\S32K144_64_flash.ld                                     
+ - build\S32K148\S32K148_256_flash.ld                                    
+ - src\src.mk                                                            
+ - src\app\adc_app.c                                                     
+ - src\app\adc_app.h                                                     
+ - src\app\app.mk                                                        
+ - src\app\can_app.c                                                     
+ - src\app\can_app.h                                                     
+ - src\app\ftm_app.c                                                     
+ - src\app\ftm_app.h                                                     
+ - src\app\irq_cfg.c                                                     
+ - src\app\irq_cfg.h                                                     
+ - src\app\lin_app.c                                                     
+ - src\app\lin_app.h                                                     
+ - src\app\main.c                                                        
+ - src\app\motor_app.c                                                   
+ - src\app\motor_app.h                                                   
+ - src\app\sci_app.c                                                     
+ - src\app\sci_app.h                                                     
+ - src\app\spi_app.c                                                     
+ - src\app\spi_app.h                                                     
+ - src\app\version.h                                                     
+ - src\app\user_api\user_api_ai.c                                        
+ - src\app\user_api\user_api_ai.h                                        
+ - src\app\user_api\user_api_can.c                                       
+ - src\app\user_api\user_api_can.h                                       
+ - src\app\user_api\user_api_eeprom.c                                    
+ - src\app\user_api\user_api_eeprom.h                                    
+ - src\app\user_api\user_api_io.c                                        
+ - src\app\user_api\user_api_io.h                                        
+ - src\app\user_api\user_api_motor.c                                     
+ - src\app\user_api\user_api_motor.h                                     
+ - src\app\user_api\user_api_pwm.c                                       
+ - src\app\user_api\user_api_pwm.h                                       
+ - src\app\user_api\user_api_system.c                                    
+ - src\app\user_api\user_api_system.h                                    
+ - src\app\user_api\user_api_timer.c                                     
+ - src\app\user_api\user_api_timer.h                                     
+ - src\app\user_api\user_api_uart.c                                      
+ - src\app\user_api\user_api_uart.h                                      
+ - src\app\user_api\user_api_util.c                                      
+ - src\app\user_api\user_api_util.h                                      
+ - src\app\user_sources\app_user.mk                                      
+ - src\app\user_sources\PutYourSourcesHere.txt                           
+ - src\bl\protocol\common\atomic.h                                       
+ - src\bl\protocol\common\defines_general.h                              
+ - src\bl\protocol\common\list_buff.h                                    
+ - src\bl\protocol\common\static_alloc.h                                 
+ - src\bl\protocol\crypto\mbedtls\asn1.h                                 
+ - src\bl\protocol\crypto\mbedtls\asn1write.h                            
+ - src\bl\protocol\crypto\mbedtls\bignum.h                               
+ - src\bl\protocol\crypto\mbedtls\bignum_core.h                          
+ - src\bl\protocol\crypto\mbedtls\bn_mul.h                               
+ - src\bl\protocol\crypto\mbedtls\build_info.h                           
+ - src\bl\protocol\crypto\mbedtls\check_config.h                         
+ - src\bl\protocol\crypto\mbedtls\common.h                               
+ - src\bl\protocol\crypto\mbedtls\constant_time.h                        
+ - src\bl\protocol\crypto\mbedtls\constant_time_internal.h               
+ - src\bl\protocol\crypto\mbedtls\error.h                                
+ - src\bl\protocol\crypto\mbedtls\mbedtls_config.h                       
+ - src\bl\protocol\crypto\mbedtls\md.h                                   
+ - src\bl\protocol\crypto\mbedtls\md_wrap.h                              
+ - src\bl\protocol\crypto\mbedtls\oid.h                                  
+ - src\bl\protocol\crypto\mbedtls\pk.h                                   
+ - src\bl\protocol\crypto\mbedtls\platform.h                             
+ - src\bl\protocol\crypto\mbedtls\platform_util.h                        
+ - src\bl\protocol\crypto\mbedtls\private_access.h                       
+ - src\bl\protocol\crypto\mbedtls\rsa.h                                  
+ - src\bl\protocol\crypto\mbedtls\rsa_alt_helpers.h                      
+ - src\bl\protocol\crypto\mbedtls\sha256.h                               
+ - src\bl\protocol\interfaces\blp_ota.h                                  
+ - src\bl\protocol\role\role.h                                           
+ - src\bl\protocol\role\role_base.h                                      
+ - src\bl\protocol\role\role_types.h                                     
+ - src\bl\protocol\role\board\board_variants.h                           
+ - src\bl\protocol\role\board\role_board.h                               
+ - src\bl\protocol\role\phy\role_phy_can.h                               
+ - src\bl\protocol\role\phy\role_phy_flash.h                             
+ - src\bl\protocol\role\phy\role_phy_sci.h                               
+ - src\bl\protocol\role\phy\role_phy_spi.h                               
+ - src\bl\protocol\role\phy\role_phy_sys.h                               
+ - src\bl\protocol\role\phy\role_phy_tick.h                              
+ - src\bl\protocol\role\protocol\ee_helper.h                             
+ - src\bl\protocol\role\protocol\role_protocol_bl.h                      
+ - src\bl\protocol\role\protocol\role_protocol_mts.h                     
+ - src\bl\protocol\role\protocol\role_protocol_sci.h                     
+ - src\bl\protocol\role\protocol\role_protocol_spi.h                     
+ - src\bl\protocol\role\protocol\role_wbx_bl.h                           
+ - src\bsp\irq_priority.h                                                
+ - src\bsp\sdk\platform\devices\callbacks.h                              
+ - src\bsp\sdk\platform\devices\devassert.h                              
+ - src\bsp\sdk\platform\devices\device_registers.h                       
+ - src\bsp\sdk\platform\devices\mcu_dep.h                                
+ - src\bsp\sdk\platform\devices\startup.h                                
+ - src\bsp\sdk\platform\devices\status.h                                 
+ - src\bsp\sdk\platform\devices\common\s32_core_cm4.h                    
+ - src\bsp\sdk\platform\devices\S32K142\include\S32K142.h                
+ - src\bsp\sdk\platform\devices\S32K142\include\S32K142_features.h       
+ - src\bsp\sdk\platform\devices\S32K142\include\cmsis\core_cm4.h         
+ - src\bsp\sdk\platform\devices\S32K142\include\cmsis\core_cm4_simd.h    
+ - src\bsp\sdk\platform\devices\S32K142\include\cmsis\core_cmFunc.h      
+ - src\bsp\sdk\platform\devices\S32K142\include\cmsis\core_cmInstr.h     
+ - src\bsp\sdk\platform\devices\S32K142\startup\system_S32K142.h         
+ - src\bsp\sdk\platform\devices\S32K144\include\S32K144.h                
+ - src\bsp\sdk\platform\devices\S32K144\include\S32K144_features.h       
+ - src\bsp\sdk\platform\devices\S32K144\include\cmsis\core_cm4.h         
+ - src\bsp\sdk\platform\devices\S32K144\include\cmsis\core_cm4_simd.h    
+ - src\bsp\sdk\platform\devices\S32K144\include\cmsis\core_cmFunc.h      
+ - src\bsp\sdk\platform\devices\S32K144\include\cmsis\core_cmInstr.h     
+ - src\bsp\sdk\platform\devices\S32K144\startup\system_S32K144.h         
+ - src\bsp\sdk\platform\devices\S32K148\include\S32K148.h                
+ - src\bsp\sdk\platform\devices\S32K148\include\S32K148_features.h       
+ - src\bsp\sdk\platform\devices\S32K148\include\cmsis\core_cm4.h         
+ - src\bsp\sdk\platform\devices\S32K148\include\cmsis\core_cm4_simd.h    
+ - src\bsp\sdk\platform\devices\S32K148\include\cmsis\core_cmFunc.h      
+ - src\bsp\sdk\platform\devices\S32K148\include\cmsis\core_cmInstr.h     
+ - src\bsp\sdk\platform\devices\S32K148\startup\system_S32K148.h         
+ - src\bsp\sdk\platform\drivers\inc\adc_driver.h                         
+ - src\bsp\sdk\platform\drivers\inc\clock.h                              
+ - src\bsp\sdk\platform\drivers\inc\clock_manager.h                      
+ - src\bsp\sdk\platform\drivers\inc\cmp_driver.h                         
+ - src\bsp\sdk\platform\drivers\inc\crc_driver.h                         
+ - src\bsp\sdk\platform\drivers\inc\csec_driver.h                        
+ - src\bsp\sdk\platform\drivers\inc\edma_driver.h                        
+ - src\bsp\sdk\platform\drivers\inc\eim_driver.h                         
+ - src\bsp\sdk\platform\drivers\inc\enet_driver.h                        
+ - src\bsp\sdk\platform\drivers\inc\erm_driver.h                         
+ - src\bsp\sdk\platform\drivers\inc\ewm_driver.h                         
+ - src\bsp\sdk\platform\drivers\inc\flash_driver.h                       
+ - src\bsp\sdk\platform\drivers\inc\flash_mx25l6433f_driver.h            
+ - src\bsp\sdk\platform\drivers\inc\flexcan_driver.h                     
+ - src\bsp\sdk\platform\drivers\inc\flexio.h                             
+ - src\bsp\sdk\platform\drivers\inc\flexio_i2c_driver.h                  
+ - src\bsp\sdk\platform\drivers\inc\flexio_i2s_driver.h                  
+ - src\bsp\sdk\platform\drivers\inc\flexio_spi_driver.h                  
+ - src\bsp\sdk\platform\drivers\inc\flexio_uart_driver.h                 
+ - src\bsp\sdk\platform\drivers\inc\ftm_common.h                         
+ - src\bsp\sdk\platform\drivers\inc\ftm_ic_driver.h                      
+ - src\bsp\sdk\platform\drivers\inc\ftm_mc_driver.h                      
+ - src\bsp\sdk\platform\drivers\inc\ftm_oc_driver.h                      
+ - src\bsp\sdk\platform\drivers\inc\ftm_pwm_driver.h                     
+ - src\bsp\sdk\platform\drivers\inc\ftm_qd_driver.h                      
+ - src\bsp\sdk\platform\drivers\inc\interrupt_manager.h                  
+ - src\bsp\sdk\platform\drivers\inc\lpi2c_driver.h                       
+ - src\bsp\sdk\platform\drivers\inc\lpit_driver.h                        
+ - src\bsp\sdk\platform\drivers\inc\lpspi_master_driver.h                
+ - src\bsp\sdk\platform\drivers\inc\lpspi_shared_function.h              
+ - src\bsp\sdk\platform\drivers\inc\lpspi_slave_driver.h                 
+ - src\bsp\sdk\platform\drivers\inc\lptmr_driver.h                       
+ - src\bsp\sdk\platform\drivers\inc\lpuart_driver.h                      
+ - src\bsp\sdk\platform\drivers\inc\lpuart_driver_mrs_lin.h              
+ - src\bsp\sdk\platform\drivers\inc\mpu_driver.h                         
+ - src\bsp\sdk\platform\drivers\inc\pdb_driver.h                         
+ - src\bsp\sdk\platform\drivers\inc\phy.h                                
+ - src\bsp\sdk\platform\drivers\inc\phy_generic.h                        
+ - src\bsp\sdk\platform\drivers\inc\phy_tja110x.h                        
+ - src\bsp\sdk\platform\drivers\inc\pins_driver.h                        
+ - src\bsp\sdk\platform\drivers\inc\power_manager.h                      
+ - src\bsp\sdk\platform\drivers\inc\quadspi_driver.h                     
+ - src\bsp\sdk\platform\drivers\inc\rtc_driver.h                         
+ - src\bsp\sdk\platform\drivers\inc\sai_driver.h                         
+ - src\bsp\sdk\platform\drivers\inc\trgmux_driver.h                      
+ - src\bsp\sdk\platform\drivers\inc\wdog_driver.h                        
+ - src\bsp\sdk\platform\drivers\src\adc\adc_hw_access.h                  
+ - src\bsp\sdk\platform\drivers\src\clock\S32K1xx\clock_S32K1xx.h        
+ - src\bsp\sdk\platform\drivers\src\clock\S32K1xx\pcc_hw_access.h        
+ - src\bsp\sdk\platform\drivers\src\clock\S32K1xx\pmc_hw_access.h        
+ - src\bsp\sdk\platform\drivers\src\clock\S32K1xx\scg_hw_access.h        
+ - src\bsp\sdk\platform\drivers\src\clock\S32K1xx\sim_hw_access.h        
+ - src\bsp\sdk\platform\drivers\src\clock\S32K1xx\smc_hw_access.h        
+ - src\bsp\sdk\platform\drivers\src\cmp\cmp_hw_access.h                  
+ - src\bsp\sdk\platform\drivers\src\crc\crc_hw_access.h                  
+ - src\bsp\sdk\platform\drivers\src\csec\csec_hw_access.h                
+ - src\bsp\sdk\platform\drivers\src\edma\edma_hw_access.h                
+ - src\bsp\sdk\platform\drivers\src\edma\edma_irq.h                      
+ - src\bsp\sdk\platform\drivers\src\ewm\ewm_hw_access.h                  
+ - src\bsp\sdk\platform\drivers\src\flexcan\flexcan_hw_access.h          
+ - src\bsp\sdk\platform\drivers\src\flexcan\flexcan_irq.h                
+ - src\bsp\sdk\platform\drivers\src\flexio\flexio_common.h               
+ - src\bsp\sdk\platform\drivers\src\flexio\flexio_hw_access.h            
+ - src\bsp\sdk\platform\drivers\src\ftm\ftm_hw_access.h                  
+ - src\bsp\sdk\platform\drivers\src\lpi2c\lpi2c_hw_access.h              
+ - src\bsp\sdk\platform\drivers\src\lpi2c\lpi2c_irq.h                    
+ - src\bsp\sdk\platform\drivers\src\lpit\lpit_hw_access.h                
+ - src\bsp\sdk\platform\drivers\src\lpspi\lpspi_hw_access.h              
+ - src\bsp\sdk\platform\drivers\src\lptmr\lptmr_hw_access.h              
+ - src\bsp\sdk\platform\drivers\src\lpuart\lpuart_hw_access.h            
+ - src\bsp\sdk\platform\drivers\src\lpuart\lpuart_irq.h                  
+ - src\bsp\sdk\platform\drivers\src\mpu\mpu_hw_access.h                  
+ - src\bsp\sdk\platform\drivers\src\pdb\pdb_hw_access.h                  
+ - src\bsp\sdk\platform\drivers\src\pins\pins_gpio_hw_access.h           
+ - src\bsp\sdk\platform\drivers\src\pins\pins_port_hw_access.h           
+ - src\bsp\sdk\platform\drivers\src\power\S32K1xx\power_manager_S32K1xx.h
+ - src\bsp\sdk\platform\drivers\src\power\S32K1xx\power_rcm_hw_access.h  
+ - src\bsp\sdk\platform\drivers\src\power\S32K1xx\power_scg_hw_access.h  
+ - src\bsp\sdk\platform\drivers\src\power\S32K1xx\power_smc_hw_access.h  
+ - src\bsp\sdk\platform\drivers\src\rtc\rtc_hw_access.h                  
+ - src\bsp\sdk\platform\drivers\src\trgmux\trgmux_hw_access.h            
+ - src\bsp\sdk\platform\drivers\src\wdog\wdog_hw_access.h                
+ - src\bsp\sdk\rtos\osif\osif.h                                          
+ - src\bsp_cfg\adConvCom1.h                                              
+ - src\bsp_cfg\canCom1.h                                                 
+ - src\bsp_cfg\clockMan1.h                                               
+ - src\bsp_cfg\Cpu.h                                                     
+ - src\bsp_cfg\crc1.h                                                    
+ - src\bsp_cfg\dmaControllerCom1.h                                       
+ - src\bsp_cfg\flash1.h                                                  
+ - src\bsp_cfg\flexIOCom.h                                               
+ - src\bsp_cfg\flexTimerCom1.h                                           
+ - src\bsp_cfg\ioCom1.h                                                  
+ - src\bsp_cfg\lpi2cCom1.h                                               
+ - src\bsp_cfg\lpitCom1.h                                                
+ - src\bsp_cfg\lpspiCom1.h                                               
+ - src\bsp_cfg\lpTmr1.h                                                  
+ - src\bsp_cfg\lpuart1.h                                                 
+ - src\bsp_cfg\osif1.h                                                   
+ - src\bsp_cfg\pdbCom1.h                                                 
+ - src\bsp_cfg\rtcTimer1.h                                               
+ - src\bsp_cfg\watchdog1.h                                               
+ - src\cfl\linstack\bit_access_macros.h                                  
+ - src\cfl\linstack\lin_stack.h                                          
+ - src\cfl\linstack\lin_stack_private_prototypes.h                       
+ - src\cfl\linstack\lin_stack_simulation.h                               
+ - src\ds\can\can_db_tables.c                                            
+ - src\ds\can\can_db_tables.h                                            
+ - src\ds\dsl\dsl_cfg.h                                                  
+ - src\ds\gp\graph_code.c                                                
+ - src\ds\gp\graph_code.h                                                
+ - src\ds\gp\graph_support.c                                             
+ - src\ds\gp\graph_support.h                                             
+ - src\ds\gp\module_code.c                                               
+ - src\ds\gp\module_code.h                                               
+ - src\ds\io\io_tables.c                                                 
+ - src\ds\io\io_tables.h                                                 
+ - src\ds\io\io_variables.c                                              
+ - src\ds\io\io_variables.h                                              
+ - src\ds\lin\lin_db_tables.c                                            
+ - src\ds\lin\lin_db_tables.h                                            
+ - src\ds\lin\lin_diagnose.c                                             
+ - src\ds\lin\lin_diagnose.h                                             
+ - src\ds\module\modulhardwarecode.c                                     
+ - src\ds\module\modulhardwarecode.h                                     
+ - src\ds\user\user_code.c                                               
+ - src\ds\user\user_code.h                                               
+ - src\hal_def\hal_can.h                                                 
+ - src\hal_def\hal_crc.h                                                 
+ - src\hal_def\hal_data_types.h                                          
+ - src\hal_def\hal_i2c.h                                                 
+ - src\hal_def\hal_io.h                                                  
+ - src\hal_def\hal_lin.h                                                 
+ - src\hal_def\hal_math.h                                                
+ - src\hal_def\hal_motor_control.h                                       
+ - src\hal_def\hal_nvm.h                                                 
+ - src\hal_def\hal_pwm.h                                                 
+ - src\hal_def\hal_sci.h                                                 
+ - src\hal_def\hal_spi.h                                                 
+ - src\hal_def\hal_sys.h                                                 
+ - src\hal_def\hal_tick.h                                                
+ - src\hal_def\hal_version.h                                             
+ - src\hal_def\hal_watchdog.h                                            
+ - src\hal_impl_s32k\hal_version_s32k.h                                  
+ - src\sfl\bl_protocol\sfl_bl_protocol.c                                 
+ - src\sfl\bl_protocol\sfl_bl_protocol.h                                 
+ - src\sfl\bl_protocol\sfl_bl_protocol_s32k.c                            
+ - src\sfl\bl_protocol\sfl_bl_protocol_s32k.h                            
+ - src\sfl\bl_protocol\sfl_bl_protocol_version.h                         
+ - src\sfl\can_db\sfl_can_db.c                                           
+ - src\sfl\can_db\sfl_can_db.h                                           
+ - src\sfl\can_db\sfl_can_db_tables_data.c                               
+ - src\sfl\can_db\sfl_can_db_tables_data.h                               
+ - src\sfl\can_db\sfl_can_db_version.h                                   
+ - src\sfl\db\sfl_db.c                                                   
+ - src\sfl\db\sfl_db.h                                                   
+ - src\sfl\db\sfl_db_version.h                                           
+ - src\sfl\fifo\sfl_fifo.c                                               
+ - src\sfl\fifo\sfl_fifo.h                                               
+ - src\sfl\fifo\sfl_fifo_version.h                                       
+ - src\sfl\math\sfl_math.c                                               
+ - src\sfl\math\sfl_math.h                                               
+ - src\sfl\math\sfl_math_version.h                                       
+ - src\sfl\signal_generator\sfl_ramp_generator.c                         
+ - src\sfl\signal_generator\sfl_ramp_generator.h                         
+ - src\sfl\signal_generator\sfl_signal_generator.c                       
+ - src\sfl\signal_generator\sfl_signal_generator.h                       
+ - src\sfl\signal_generator\sfl_signal_generator_version.h               
+ - src\sfl\timer\sfl_timer.c                                             
+ - src\sfl\timer\sfl_timer.h                                             
+ - src\sfl\timer\sfl_timer_version.h                                     
+
++ Files to be removed:
+ - lastbuildparams.txt                                                   
+
++ Files to be replaced:
+
+### Listing Done ###
+
+Ready for Update
+### Starting ###
+
+Search fitting Template
+
+######
+
++ unziping Template to temp dir
++ unzip done to: C:\Users\d.vaitiekus\AppData\Local\Temp\2347cbf8-431d-4a6c-b435-2a54dd10b2e1
+
+### Loading Projects ###
+
++ CC16WP_CAN_FD_250_500_401811 was loaded from zip
+
+### Creating Backups ###
+
++ backup created: C:\Users\d.vaitiekus\OneDrive - AB AUGA Group\Documents\GIT PROJECTS\CC16WP_C_AUX_IO\..\CC16WP_C_AUX_IO_BACKUP_20240905T093517
+
+### Pre Update Steps ###
+
+
+### GP Signed Update needed ###
+
+
+### Deleting old BSW Files ###
+
++ src deleted
+Error: 
+The process cannot access the file 'C:\Users\d.vaitiekus\OneDrive - AB AUGA Group\Documents\GIT PROJECTS\CC16WP_C_AUX_IO\bin' because it is being used by another process.
+
+=== Update FAILED ===
+
+### Starting ###
+
+Search fitting Template
+
+######
+
++ unziping Template to temp dir
++ unzip done to: C:\Users\d.vaitiekus\AppData\Local\Temp\2ad7b9cf-68b0-4bdf-9aed-f6453753fb2e
+
+### Loading Projects ###
+
++ CC16WP_CAN_FD_250_500_401811 was loaded from zip
+
+### Creating Backups ###
+
++ backup created: C:\Users\d.vaitiekus\OneDrive - AB AUGA Group\Documents\GIT PROJECTS\CC16WP_C_AUX_IO\..\CC16WP_C_AUX_IO_BACKUP_20240905T093517
+
+### Pre Update Steps ###
+
+
+### GP Signed Update needed ###
+
+
+### Deleting old BSW Files ###
+
++ bin deleted
++ makefile deleted
++ IO_DEF_*.mdb deleted
+
+### Moving new BSW Files ###
+
++ build moved
++ obj moved
++ src moved
++ bin moved
++ makefile moved
++ IO_DEF_*.mdb moved
+
+### Adjustments ###
+
++ renamed IODef to IO_DEF_CC16WP_C_AUX_IO.mdb
++ CC16WP_C_AUX_IO was loaded from zip
++ CC16WP_C_AUX_IO was reloaded and saved
++ recreating code files
++ finished recreating code files
+
+### Post Update Steps ###
+
++ added USERDATENSATZ_START and USERDATENSATZ_SIZE to usercode.c
++ added user_int_rx_sci to usercode.c
++ Added new defines SET_SCI_CONTINUOUS_RECEPTION and SET_SCI_CONTINUOUS_TRANSMISSION
+
+### Testing ###
+
++ rebuild
+= test build failed 
+! please go to the build information tab and rebuild to see the errors 
+
+=== Update Done ===
+
+### Starting ###
+
+Search fitting Template
+
+######
+
++ unziping Template to temp dir
++ unzip done to: C:\Users\d.vaitiekus\AppData\Local\Temp\ca10d98a-4a2c-4486-a870-77dc633d219e
+
+### Loading Projects ###
+
++ CC16WP_CAN_FD_250_500_401811 was loaded from zip
+
+### Creating Backups ###
+
++ backup created: C:\Users\d.vaitiekus\OneDrive - AB AUGA Group\Documents\GIT PROJECTS\CC16WP_C_AUX_IO\..\CC16WP_C_AUX_IO_BACKUP_20240905T093517
+
+### Pre Update Steps ###
+
+
+### GP Signed Update needed ###
+
+
+### Deleting old BSW Files ###
+
++ build deleted
++ src deleted
++ bin deleted
++ makefile deleted
++ IO_DEF_*.mdb deleted
+
+### Moving new BSW Files ###
+
++ build moved
++ obj moved
++ src moved
++ bin moved
++ makefile moved
++ IO_DEF_*.mdb moved
+
+### Adjustments ###
+
++ renamed IODef to IO_DEF_CC16WP_C_AUX_IO.mdb
++ CC16WP_C_AUX_IO was loaded from zip
++ CC16WP_C_AUX_IO was reloaded and saved
++ recreating code files
++ finished recreating code files
+
+### Post Update Steps ###
+
++ Added new defines SET_SCI_CONTINUOUS_RECEPTION and SET_SCI_CONTINUOUS_TRANSMISSION
+
+### Testing ###
+
++ rebuild
+= test build failed 
+! please go to the build information tab and rebuild to see the errors 
+
+=== Update Done ===
+
+
+

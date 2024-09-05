@@ -1,0 +1,325 @@
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"user_code.c"
+  14              		.text
+  15              		.section	.text.millis,"ax",%progbits
+  16              		.align	1
+  17              		.global	millis
+  18              		.arch armv7e-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	millis:
+  25              		@ args = 0, pretend = 0, frame = 8
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27 0000 00B5     		push	{lr}
+  28 0002 83B0     		sub	sp, sp, #12
+  29 0004 0321     		movs	r1, #3
+  30 0006 01A8     		add	r0, sp, #4
+  31 0008 FFF7FEFF 		bl	user_set_timestamp
+  32 000c 0198     		ldr	r0, [sp, #4]
+  33 000e 03B0     		add	sp, sp, #12
+  34              		@ sp needed
+  35 0010 5DF804FB 		ldr	pc, [sp], #4
+  37              		.section	.text.usercode_init,"ax",%progbits
+  38              		.align	1
+  39              		.global	usercode_init
+  40              		.syntax unified
+  41              		.thumb
+  42              		.thumb_func
+  43              		.fpu fpv4-sp-d16
+  45              	usercode_init:
+  46              		@ args = 0, pretend = 0, frame = 0
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48 0000 70B5     		push	{r4, r5, r6, lr}
+  49 0002 0849     		ldr	r1, .L7
+  50 0004 0848     		ldr	r0, .L7+4
+  51 0006 FFF7FEFF 		bl	user_eeprom_write_app_info
+  52 000a 084D     		ldr	r5, .L7+8
+  53 000c 6C1E     		subs	r4, r5, #1
+  54 000e 0D35     		adds	r5, r5, #13
+  55 0010 0026     		movs	r6, #0
+  56              	.L4:
+  57 0012 3146     		mov	r1, r6
+  58 0014 14F8010F 		ldrb	r0, [r4, #1]!	@ zero_extendqisi2
+  59 0018 FFF7FEFF 		bl	modulhardwarecode_adc_set_measurement_range
+  60 001c AC42     		cmp	r4, r5
+  61 001e F8D1     		bne	.L4
+  62 0020 70BD     		pop	{r4, r5, r6, pc}
+  63              	.L8:
+  64 0022 00BF     		.align	2
+  65              	.L7:
+  66 0024 00000000 		.word	.LC0
+  67 0028 18000000 		.word	.LC1
+  68 002c 00000000 		.word	.LANCHOR0
+  70              		.section	.text.usercode,"ax",%progbits
+  71              		.align	1
+  72              		.global	usercode
+  73              		.syntax unified
+  74              		.thumb
+  75              		.thumb_func
+  76              		.fpu fpv4-sp-d16
+  78              	usercode:
+  79              		@ args = 0, pretend = 0, frame = 0
+  80              		@ frame_needed = 0, uses_anonymous_args = 0
+  81 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+  82 0004 FFF7FEFF 		bl	user_can_db_process_rx
+  83 0008 244E     		ldr	r6, .L19
+  84 000a 751E     		subs	r5, r6, #1
+  85 000c 244F     		ldr	r7, .L19+4
+  86 000e 0D36     		adds	r6, r6, #13
+  87 0010 3C46     		mov	r4, r7
+  88 0012 4FF00008 		mov	r8, #0
+  89 0016 4FF00109 		mov	r9, #1
+  90              	.L12:
+  91 001a 15F8010F 		ldrb	r0, [r5, #1]!	@ zero_extendqisi2
+  92 001e FFF7FEFF 		bl	user_can_db_get_value
+  93 0022 0128     		cmp	r0, #1
+  94 0024 0CBF     		ite	eq
+  95 0026 4946     		moveq	r1, r9
+  96 0028 4146     		movne	r1, r8
+  97 002a 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+  98 002c FFF7FEFF 		bl	user_do_set
+  99 0030 0134     		adds	r4, r4, #1
+ 100 0032 B542     		cmp	r5, r6
+ 101 0034 F1D1     		bne	.L12
+ 102 0036 1B4C     		ldr	r4, .L19+8
+ 103 0038 1B4D     		ldr	r5, .L19+12
+ 104 003a 0D37     		adds	r7, r7, #13
+ 105              	.L13:
+ 106 003c 14F8010F 		ldrb	r0, [r4, #1]!	@ zero_extendqisi2
+ 107 0040 FFF7FEFF 		bl	user_do_readback
+ 108 0044 0146     		mov	r1, r0
+ 109 0046 15F8010F 		ldrb	r0, [r5, #1]!	@ zero_extendqisi2
+ 110 004a FFF7FEFF 		bl	user_can_db_set_value
+ 111 004e BC42     		cmp	r4, r7
+ 112 0050 F4D1     		bne	.L13
+ 113 0052 164F     		ldr	r7, .L19+16
+ 114 0054 7C1E     		subs	r4, r7, #1
+ 115 0056 164E     		ldr	r6, .L19+20
+ 116 0058 0737     		adds	r7, r7, #7
+ 117 005a 40F6F619 		movw	r9, #2550
+ 118 005e DFF85880 		ldr	r8, .L19+28
+ 119 0062 144D     		ldr	r5, .L19+24
+ 120              	.L14:
+ 121 0064 14F8010F 		ldrb	r0, [r4, #1]!	@ zero_extendqisi2
+ 122 0068 FFF7FEFF 		bl	user_ai_get_mv_calib
+ 123 006c 4845     		cmp	r0, r9
+ 124 006e 28BF     		it	cs
+ 125 0070 4846     		movcs	r0, r9
+ 126 0072 A8FB0031 		umull	r3, r1, r8, r0
+ 127 0076 C908     		lsrs	r1, r1, #3
+ 128 0078 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 129 007a 0B44     		add	r3, r3, r1
+ 130 007c 2B70     		strb	r3, [r5]
+ 131 007e 16F8010F 		ldrb	r0, [r6, #1]!	@ zero_extendqisi2
+ 132 0082 FFF7FEFF 		bl	user_can_db_set_value
+ 133 0086 BC42     		cmp	r4, r7
+ 134 0088 ECD1     		bne	.L14
+ 135 008a 0A4C     		ldr	r4, .L19+24
+ 136 008c 2178     		ldrb	r1, [r4]	@ zero_extendqisi2
+ 137 008e 2420     		movs	r0, #36
+ 138 0090 FFF7FEFF 		bl	user_can_db_set_value
+ 139 0094 0023     		movs	r3, #0
+ 140 0096 2370     		strb	r3, [r4]
+ 141 0098 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 142              	.L20:
+ 143              		.align	2
+ 144              	.L19:
+ 145 009c 00000000 		.word	.LANCHOR1
+ 146 00a0 00000000 		.word	.LANCHOR2
+ 147 00a4 FFFFFFFF 		.word	.LANCHOR2-1
+ 148 00a8 FFFFFFFF 		.word	.LANCHOR3-1
+ 149 00ac 00000000 		.word	.LANCHOR4
+ 150 00b0 FFFFFFFF 		.word	.LANCHOR5-1
+ 151 00b4 00000000 		.word	.LANCHOR6
+ 152 00b8 CDCCCCCC 		.word	-858993459
+ 154              		.section	.text.user_can_receive_msg_callback,"ax",%progbits
+ 155              		.align	1
+ 156              		.global	user_can_receive_msg_callback
+ 157              		.syntax unified
+ 158              		.thumb
+ 159              		.thumb_func
+ 160              		.fpu fpv4-sp-d16
+ 162              	user_can_receive_msg_callback:
+ 163              		@ args = 0, pretend = 0, frame = 0
+ 164              		@ frame_needed = 0, uses_anonymous_args = 0
+ 165              		@ link register save eliminated.
+ 166 0000 7047     		bx	lr
+ 168              		.section	.text.user_sci_continuous_receive_callback,"ax",%progbits
+ 169              		.align	1
+ 170              		.global	user_sci_continuous_receive_callback
+ 171              		.syntax unified
+ 172              		.thumb
+ 173              		.thumb_func
+ 174              		.fpu fpv4-sp-d16
+ 176              	user_sci_continuous_receive_callback:
+ 177              		@ args = 0, pretend = 0, frame = 0
+ 178              		@ frame_needed = 0, uses_anonymous_args = 0
+ 179              		@ link register save eliminated.
+ 180 0000 7047     		bx	lr
+ 182              		.section	.text.user_int_timer_1ms,"ax",%progbits
+ 183              		.align	1
+ 184              		.global	user_int_timer_1ms
+ 185              		.syntax unified
+ 186              		.thumb
+ 187              		.thumb_func
+ 188              		.fpu fpv4-sp-d16
+ 190              	user_int_timer_1ms:
+ 191              		@ args = 0, pretend = 0, frame = 0
+ 192              		@ frame_needed = 0, uses_anonymous_args = 0
+ 193              		@ link register save eliminated.
+ 194 0000 7047     		bx	lr
+ 196              		.section	.text.user_int_rx_sci,"ax",%progbits
+ 197              		.align	1
+ 198              		.global	user_int_rx_sci
+ 199              		.syntax unified
+ 200              		.thumb
+ 201              		.thumb_func
+ 202              		.fpu fpv4-sp-d16
+ 204              	user_int_rx_sci:
+ 205              		@ args = 0, pretend = 0, frame = 0
+ 206              		@ frame_needed = 0, uses_anonymous_args = 0
+ 207              		@ link register save eliminated.
+ 208 0000 7047     		bx	lr
+ 210              		.comm	my_sci_buffer,3,4
+ 211              		.global	total_current
+ 212              		.comm	currentMillis,4,4
+ 213              		.global	previousMillis
+ 214              		.global	ain_pins
+ 215              		.global	in_pins
+ 216              		.global	out_pins
+ 217              		.global	cur_datapoints
+ 218              		.global	status_datapoints
+ 219              		.global	cmd_datapoints
+ 220              		.section	.bss.previousMillis,"aw",%nobits
+ 221              		.align	2
+ 224              	previousMillis:
+ 225 0000 00000000 		.space	4
+ 226              		.section	.bss.total_current,"aw",%nobits
+ 227              		.set	.LANCHOR6,. + 0
+ 230              	total_current:
+ 231 0000 00       		.space	1
+ 232              		.section	.data.ain_pins,"aw"
+ 233              		.align	2
+ 234              		.set	.LANCHOR4,. + 0
+ 237              	ain_pins:
+ 238 0000 07       		.byte	7
+ 239 0001 08       		.byte	8
+ 240 0002 09       		.byte	9
+ 241 0003 0A       		.byte	10
+ 242 0004 0B       		.byte	11
+ 243 0005 0C       		.byte	12
+ 244 0006 0D       		.byte	13
+ 245 0007 0E       		.byte	14
+ 246              		.section	.data.cmd_datapoints,"aw"
+ 247              		.align	2
+ 248              		.set	.LANCHOR1,. + 0
+ 251              	cmd_datapoints:
+ 252 0000 00       		.byte	0
+ 253 0001 01       		.byte	1
+ 254 0002 02       		.byte	2
+ 255 0003 03       		.byte	3
+ 256 0004 04       		.byte	4
+ 257 0005 05       		.byte	5
+ 258 0006 06       		.byte	6
+ 259 0007 07       		.byte	7
+ 260 0008 1E       		.byte	30
+ 261 0009 1F       		.byte	31
+ 262 000a 20       		.byte	32
+ 263 000b 21       		.byte	33
+ 264 000c 22       		.byte	34
+ 265 000d 23       		.byte	35
+ 266              		.section	.data.cur_datapoints,"aw"
+ 267              		.align	2
+ 268              		.set	.LANCHOR5,. + 0
+ 271              	cur_datapoints:
+ 272 0000 12       		.byte	18
+ 273 0001 13       		.byte	19
+ 274 0002 14       		.byte	20
+ 275 0003 15       		.byte	21
+ 276 0004 16       		.byte	22
+ 277 0005 17       		.byte	23
+ 278 0006 18       		.byte	24
+ 279 0007 19       		.byte	25
+ 280              		.section	.data.in_pins,"aw"
+ 281              		.align	2
+ 282              		.set	.LANCHOR0,. + 0
+ 285              	in_pins:
+ 286 0000 11       		.byte	17
+ 287 0001 12       		.byte	18
+ 288 0002 13       		.byte	19
+ 289 0003 14       		.byte	20
+ 290 0004 15       		.byte	21
+ 291 0005 16       		.byte	22
+ 292 0006 17       		.byte	23
+ 293 0007 18       		.byte	24
+ 294 0008 00       		.byte	0
+ 295 0009 01       		.byte	1
+ 296 000a 02       		.byte	2
+ 297 000b 03       		.byte	3
+ 298 000c 04       		.byte	4
+ 299 000d 05       		.byte	5
+ 300              		.section	.data.out_pins,"aw"
+ 301              		.align	2
+ 302              		.set	.LANCHOR2,. + 0
+ 305              	out_pins:
+ 306 0000 44       		.byte	68
+ 307 0001 16       		.byte	22
+ 308 0002 50       		.byte	80
+ 309 0003 17       		.byte	23
+ 310 0004 3B       		.byte	59
+ 311 0005 42       		.byte	66
+ 312 0006 3F       		.byte	63
+ 313 0007 46       		.byte	70
+ 314 0008 2D       		.byte	45
+ 315 0009 4F       		.byte	79
+ 316 000a 1A       		.byte	26
+ 317 000b 2C       		.byte	44
+ 318 000c 1D       		.byte	29
+ 319 000d 23       		.byte	35
+ 320              		.section	.data.status_datapoints,"aw"
+ 321              		.align	2
+ 322              		.set	.LANCHOR3,. + 0
+ 325              	status_datapoints:
+ 326 0000 08       		.byte	8
+ 327 0001 09       		.byte	9
+ 328 0002 0A       		.byte	10
+ 329 0003 0B       		.byte	11
+ 330 0004 0C       		.byte	12
+ 331 0005 0D       		.byte	13
+ 332 0006 0E       		.byte	14
+ 333 0007 0F       		.byte	15
+ 334 0008 10       		.byte	16
+ 335 0009 11       		.byte	17
+ 336 000a 1A       		.byte	26
+ 337 000b 1B       		.byte	27
+ 338 000c 1C       		.byte	28
+ 339 000d 1D       		.byte	29
+ 340              		.section	.rodata.usercode_init.str1.4,"aMS",%progbits,1
+ 341              		.align	2
+ 342              	.LC0:
+ 343 0000 56312E30 		.ascii	"V1.0.0              \000"
+ 343      2E302020 
+ 343      20202020 
+ 343      20202020 
+ 343      20202020 
+ 344 0015 000000   		.space	3
+ 345              	.LC1:
+ 346 0018 43433136 		.ascii	"CC16WP CAN AUX GPIO           \000"
+ 346      57502043 
+ 346      414E2041 
+ 346      55582047 
+ 346      50494F20 
+ 347              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2019-q3-update) 8.3.1 20190703 (release) [gc

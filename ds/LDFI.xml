@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DSInterface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AvailableSCIBuses />
+  <Buses />
+  <OutputDirectory>C:\Users\d.vaitiekus\OneDrive - AB AUGA Group\Documents\GIT PROJECTS\CC16WP_C_AUX_IO\src\ds\lin</OutputDirectory>
+  <ProjectDirectory>C:\Users\d.vaitiekus\OneDrive - AB AUGA Group\Documents\GIT PROJECTS\CC16WP_C_AUX_IO</ProjectDirectory>
+  <SCIBusToEnums />
+  <TakenSCIBuses />
+  <Target>S32K</Target>
+</DSInterface>

@@ -1,0 +1,928 @@
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"adc_app.c"
+  14              		.text
+  15              		.section	.text._dummy89,"ax",%progbits
+  16              		.align	1
+  17              		.global	_dummy89
+  18              		.arch armv7e-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	_dummy89:
+  25              		@ args = 0, pretend = 0, frame = 0
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27              		@ link register save eliminated.
+  28 0000 7047     		bx	lr
+  30              		.section	.text.pdb_init,"ax",%progbits
+  31              		.align	1
+  32              		.global	pdb_init
+  33              		.syntax unified
+  34              		.thumb
+  35              		.thumb_func
+  36              		.fpu fpv4-sp-d16
+  38              	pdb_init:
+  39              		@ args = 0, pretend = 0, frame = 24
+  40              		@ frame_needed = 0, uses_anonymous_args = 0
+  41 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  42 0004 87B0     		sub	sp, sp, #28
+  43 0006 524C     		ldr	r4, .L13
+  44 0008 2146     		mov	r1, r4
+  45 000a 0020     		movs	r0, #0
+  46 000c FFF7FEFF 		bl	PDB_DRV_Init
+  47 0010 0020     		movs	r0, #0
+  48 0012 FFF7FEFF 		bl	PDB_DRV_Enable
+  49 0016 2146     		mov	r1, r4
+  50 0018 0120     		movs	r0, #1
+  51 001a FFF7FEFF 		bl	PDB_DRV_Init
+  52 001e 0120     		movs	r0, #1
+  53 0020 FFF7FEFF 		bl	PDB_DRV_Enable
+  54 0024 0023     		movs	r3, #0
+  55 0026 0493     		str	r3, [sp, #16]
+  56 0028 0593     		str	r3, [sp, #20]
+  57 002a 0122     		movs	r2, #1
+  58 002c 8DF81420 		strb	r2, [sp, #20]
+  59 0030 0293     		str	r3, [sp, #8]
+  60 0032 0393     		str	r3, [sp, #12]
+  61 0034 0093     		str	r3, [sp]
+  62 0036 0193     		str	r3, [sp, #4]
+  63 0038 464C     		ldr	r4, .L13+4
+  64 003a 04F54877 		add	r7, r4, #800
+  65 003e 4FF0440A 		mov	r10, #68
+  66 0042 4FF05909 		mov	r9, #89
+  67 0046 9846     		mov	r8, r3
+  68 0048 1FE0     		b	.L7
+  69              	.L11:
+  70 004a 5146     		mov	r1, r10
+  71 004c 4846     		mov	r0, r9
+  72 004e FFF7FEFF 		bl	failure1
+  73 0052 23E0     		b	.L3
+  74              	.L12:
+  75 0054 06AB     		add	r3, sp, #24
+  76 0056 03EB8505 		add	r5, r3, r5, lsl #2
+  77 005a 45F818BC 		str	fp, [r5, #-24]
+  78 005e 11E0     		b	.L4
+  79              	.L5:
+  80 0060 CDF81080 		str	r8, [sp, #16]
+  81 0064 4FF0010B 		mov	fp, #1
+  82 0068 8DF815B0 		strb	fp, [sp, #21]
+  83 006c 8DF81680 		strb	r8, [sp, #22]
+  84 0070 04AA     		add	r2, sp, #16
+  85 0072 3146     		mov	r1, r6
+  86 0074 2846     		mov	r0, r5
+  87 0076 FFF7FEFF 		bl	PDB_DRV_ConfigAdcPreTrigger
+  88 007a 06AB     		add	r3, sp, #24
+  89 007c 03EB8505 		add	r5, r3, r5, lsl #2
+  90 0080 45F818BC 		str	fp, [r5, #-24]
+  91              	.L4:
+  92 0084 1434     		adds	r4, r4, #20
+  93 0086 BC42     		cmp	r4, r7
+  94 0088 2ED0     		beq	.L10
+  95              	.L7:
+  96 008a A346     		mov	fp, r4
+  97 008c 2578     		ldrb	r5, [r4]	@ zero_extendqisi2
+  98 008e 06AB     		add	r3, sp, #24
+  99 0090 03EB8503 		add	r3, r3, r5, lsl #2
+ 100 0094 53F8106C 		ldr	r6, [r3, #-16]
+ 101 0098 012E     		cmp	r6, #1
+ 102 009a D6D8     		bhi	.L11
+ 103              	.L3:
+ 104 009c 9BF80C30 		ldrb	r3, [fp, #12]	@ zero_extendqisi2
+ 105 00a0 002B     		cmp	r3, #0
+ 106 00a2 EFD1     		bne	.L4
+ 107 00a4 06AB     		add	r3, sp, #24
+ 108 00a6 03EB8503 		add	r3, r3, r5, lsl #2
+ 109 00aa 53F818BC 		ldr	fp, [r3, #-24]
+ 110 00ae BBF1000F 		cmp	fp, #0
+ 111 00b2 D5D0     		beq	.L5
+ 112 00b4 CDF810B0 		str	fp, [sp, #16]
+ 113 00b8 8DF81580 		strb	r8, [sp, #21]
+ 114 00bc 0123     		movs	r3, #1
+ 115 00be 8DF81630 		strb	r3, [sp, #22]
+ 116 00c2 04AA     		add	r2, sp, #16
+ 117 00c4 3146     		mov	r1, r6
+ 118 00c6 2846     		mov	r0, r5
+ 119 00c8 FFF7FEFF 		bl	PDB_DRV_ConfigAdcPreTrigger
+ 120 00cc 0BF1010B 		add	fp, fp, #1
+ 121 00d0 BBF1070F 		cmp	fp, #7
+ 122 00d4 BED9     		bls	.L12
+ 123 00d6 06AB     		add	r3, sp, #24
+ 124 00d8 03EB8505 		add	r5, r3, r5, lsl #2
+ 125 00dc 45F8188C 		str	r8, [r5, #-24]
+ 126 00e0 0136     		adds	r6, r6, #1
+ 127 00e2 45F8106C 		str	r6, [r5, #-16]
+ 128 00e6 CDE7     		b	.L4
+ 129              	.L10:
+ 130 00e8 4FF47A61 		mov	r1, #4000
+ 131 00ec 0020     		movs	r0, #0
+ 132 00ee FFF7FEFF 		bl	PDB_DRV_SetTimerModulusValue
+ 133 00f2 0023     		movs	r3, #0
+ 134 00f4 1A46     		mov	r2, r3
+ 135 00f6 1946     		mov	r1, r3
+ 136 00f8 1846     		mov	r0, r3
+ 137 00fa FFF7FEFF 		bl	PDB_DRV_SetAdcPreTriggerDelayValue
+ 138 00fe 4FF47A73 		mov	r3, #1000
+ 139 0102 0022     		movs	r2, #0
+ 140 0104 0121     		movs	r1, #1
+ 141 0106 1046     		mov	r0, r2
+ 142 0108 FFF7FEFF 		bl	PDB_DRV_SetAdcPreTriggerDelayValue
+ 143 010c 4FF47A61 		mov	r1, #4000
+ 144 0110 0120     		movs	r0, #1
+ 145 0112 FFF7FEFF 		bl	PDB_DRV_SetTimerModulusValue
+ 146 0116 0023     		movs	r3, #0
+ 147 0118 1A46     		mov	r2, r3
+ 148 011a 1946     		mov	r1, r3
+ 149 011c 0120     		movs	r0, #1
+ 150 011e FFF7FEFF 		bl	PDB_DRV_SetAdcPreTriggerDelayValue
+ 151 0122 4FF47A73 		mov	r3, #1000
+ 152 0126 0022     		movs	r2, #0
+ 153 0128 0121     		movs	r1, #1
+ 154 012a 0846     		mov	r0, r1
+ 155 012c FFF7FEFF 		bl	PDB_DRV_SetAdcPreTriggerDelayValue
+ 156 0130 0020     		movs	r0, #0
+ 157 0132 FFF7FEFF 		bl	PDB_DRV_LoadValuesCmd
+ 158 0136 0020     		movs	r0, #0
+ 159 0138 FFF7FEFF 		bl	PDB_DRV_SoftTriggerCmd
+ 160 013c 0120     		movs	r0, #1
+ 161 013e FFF7FEFF 		bl	PDB_DRV_LoadValuesCmd
+ 162 0142 0120     		movs	r0, #1
+ 163 0144 FFF7FEFF 		bl	PDB_DRV_SoftTriggerCmd
+ 164 0148 07B0     		add	sp, sp, #28
+ 165              		@ sp needed
+ 166 014a BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 167              	.L14:
+ 168 014e 00BF     		.align	2
+ 169              	.L13:
+ 170 0150 00000000 		.word	pdbCom_InitConfig0
+ 171 0154 00000000 		.word	adc_config_tbl
+ 173              		.section	.text.ADC_init,"ax",%progbits
+ 174              		.align	1
+ 175              		.global	ADC_init
+ 176              		.syntax unified
+ 177              		.thumb
+ 178              		.thumb_func
+ 179              		.fpu fpv4-sp-d16
+ 181              	ADC_init:
+ 182              		@ args = 0, pretend = 0, frame = 16
+ 183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 184 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 185 0004 85B0     		sub	sp, sp, #20
+ 186 0006 484C     		ldr	r4, .L33
+ 187 0008 2146     		mov	r1, r4
+ 188 000a 0020     		movs	r0, #0
+ 189 000c FFF7FEFF 		bl	ADC_DRV_ConfigConverter
+ 190 0010 2146     		mov	r1, r4
+ 191 0012 0120     		movs	r0, #1
+ 192 0014 FFF7FEFF 		bl	ADC_DRV_ConfigConverter
+ 193 0018 4FF40870 		mov	r0, #544
+ 194 001c FFF7FEFF 		bl	ee_read
+ 195 0020 0288     		ldrh	r2, [r0]
+ 196 0022 46F6B353 		movw	r3, #28083
+ 197 0026 9A42     		cmp	r2, r3
+ 198 0028 05D1     		bne	.L30
+ 199              	.L16:
+ 200 002a 0023     		movs	r3, #0
+ 201 002c 0393     		str	r3, [sp, #12]
+ 202 002e DFF80891 		ldr	r9, .L33+16
+ 203 0032 4A46     		mov	r2, r9
+ 204 0034 0AE0     		b	.L18
+ 205              	.L30:
+ 206 0036 0020     		movs	r0, #0
+ 207 0038 FFF7FEFF 		bl	ADC_DRV_AutoCalibration
+ 208 003c 0120     		movs	r0, #1
+ 209 003e FFF7FEFF 		bl	ADC_DRV_AutoCalibration
+ 210 0042 F2E7     		b	.L16
+ 211              	.L17:
+ 212 0044 0133     		adds	r3, r3, #1
+ 213 0046 1432     		adds	r2, r2, #20
+ 214 0048 282B     		cmp	r3, #40
+ 215 004a 09D0     		beq	.L31
+ 216              	.L18:
+ 217 004c 117B     		ldrb	r1, [r2, #12]	@ zero_extendqisi2
+ 218 004e 0029     		cmp	r1, #0
+ 219 0050 F8D1     		bne	.L17
+ 220 0052 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
+ 221 0054 04A8     		add	r0, sp, #16
+ 222 0056 00EB4101 		add	r1, r0, r1, lsl #1
+ 223 005a 21F8043C 		strh	r3, [r1, #-4]	@ movhi
+ 224 005e F1E7     		b	.L17
+ 225              	.L31:
+ 226 0060 0025     		movs	r5, #0
+ 227 0062 0295     		str	r5, [sp, #8]
+ 228 0064 4C46     		mov	r4, r9
+ 229 0066 DFF8D480 		ldr	r8, .L33+20
+ 230 006a 304E     		ldr	r6, .L33+4
+ 231 006c 2F46     		mov	r7, r5
+ 232 006e 21E0     		b	.L24
+ 233              	.L25:
+ 234 0070 4B46     		mov	r3, r9
+ 235 0072 0022     		movs	r2, #0
+ 236 0074 03E0     		b	.L19
+ 237              	.L22:
+ 238 0076 0132     		adds	r2, r2, #1
+ 239 0078 1433     		adds	r3, r3, #20
+ 240 007a 282A     		cmp	r2, #40
+ 241 007c 0ED0     		beq	.L23
+ 242              	.L19:
+ 243 007e 5FFA82FE 		uxtb	lr, r2
+ 244 0082 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 245 0084 8142     		cmp	r1, r0
+ 246 0086 F6D1     		bne	.L22
+ 247 0088 9AF801B0 		ldrb	fp, [r10, #1]	@ zero_extendqisi2
+ 248 008c 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+ 249 008e 8B45     		cmp	fp, r1
+ 250 0090 F1D1     		bne	.L22
+ 251 0092 197B     		ldrb	r1, [r3, #12]	@ zero_extendqisi2
+ 252 0094 0029     		cmp	r1, #0
+ 253 0096 EED1     		bne	.L22
+ 254 0098 05F806E0 		strb	lr, [r5, r6]
+ 255              	.L23:
+ 256 009c 9AF80D30 		ldrb	r3, [r10, #13]	@ zero_extendqisi2
+ 257 00a0 98F80020 		ldrb	r2, [r8]	@ zero_extendqisi2
+ 258 00a4 9A42     		cmp	r2, r3
+ 259 00a6 38BF     		it	cc
+ 260 00a8 88F80030 		strbcc	r3, [r8]
+ 261              	.L21:
+ 262 00ac 0135     		adds	r5, r5, #1
+ 263 00ae 1434     		adds	r4, r4, #20
+ 264 00b0 282D     		cmp	r5, #40
+ 265 00b2 24D0     		beq	.L32
+ 266              	.L24:
+ 267 00b4 A246     		mov	r10, r4
+ 268 00b6 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 269 00b8 237B     		ldrb	r3, [r4, #12]	@ zero_extendqisi2
+ 270 00ba 002B     		cmp	r3, #0
+ 271 00bc D8D1     		bne	.L25
+ 272 00be 6378     		ldrb	r3, [r4, #1]	@ zero_extendqisi2
+ 273 00c0 ADF80630 		strh	r3, [sp, #6]	@ movhi
+ 274 00c4 8DF80470 		strb	r7, [sp, #4]
+ 275 00c8 04AB     		add	r3, sp, #16
+ 276 00ca 03EB4003 		add	r3, r3, r0, lsl #1
+ 277 00ce 33F8042C 		ldrh	r2, [r3, #-4]
+ 278 00d2 ABB2     		uxth	r3, r5
+ 279 00d4 9A42     		cmp	r2, r3
+ 280 00d6 04BF     		itt	eq
+ 281 00d8 0123     		moveq	r3, #1
+ 282 00da 8DF80430 		strbeq	r3, [sp, #4]
+ 283 00de 04AB     		add	r3, sp, #16
+ 284 00e0 03EB400B 		add	fp, r3, r0, lsl #1
+ 285 00e4 3BF808AC 		ldrh	r10, [fp, #-8]
+ 286 00e8 5FFA8AF1 		uxtb	r1, r10
+ 287 00ec A955     		strb	r1, [r5, r6]
+ 288 00ee 01AA     		add	r2, sp, #4
+ 289 00f0 FFF7FEFF 		bl	ADC_DRV_ConfigChan
+ 290 00f4 0AF1010A 		add	r10, r10, #1
+ 291 00f8 2BF808AC 		strh	r10, [fp, #-8]	@ movhi
+ 292 00fc D6E7     		b	.L21
+ 293              	.L32:
+ 294 00fe 0022     		movs	r2, #0
+ 295 0100 0B49     		ldr	r1, .L33+8
+ 296 0102 2720     		movs	r0, #39
+ 297 0104 FFF7FEFF 		bl	INT_SYS_InstallHandler
+ 298 0108 0022     		movs	r2, #0
+ 299 010a 0A49     		ldr	r1, .L33+12
+ 300 010c 2820     		movs	r0, #40
+ 301 010e FFF7FEFF 		bl	INT_SYS_InstallHandler
+ 302 0112 FFF7FEFF 		bl	pdb_init
+ 303 0116 2720     		movs	r0, #39
+ 304 0118 FFF7FEFF 		bl	INT_SYS_EnableIRQ
+ 305 011c 2820     		movs	r0, #40
+ 306 011e FFF7FEFF 		bl	INT_SYS_EnableIRQ
+ 307 0122 05B0     		add	sp, sp, #20
+ 308              		@ sp needed
+ 309 0124 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 310              	.L34:
+ 311              		.align	2
+ 312              	.L33:
+ 313 0128 00000000 		.word	adConv_ConvConfig
+ 314 012c 00000000 		.word	adc_results_to_adc_channel_index
+ 315 0130 00000000 		.word	ADC1_IRQHandler
+ 316 0134 00000000 		.word	ADC2_IRQHandler
+ 317 0138 00000000 		.word	adc_config_tbl
+ 318 013c 00000000 		.word	.LANCHOR0
+ 320              		.section	.text.ADC_IRQHandler,"ax",%progbits
+ 321              		.align	1
+ 322              		.global	ADC_IRQHandler
+ 323              		.syntax unified
+ 324              		.thumb
+ 325              		.thumb_func
+ 326              		.fpu fpv4-sp-d16
+ 328              	ADC_IRQHandler:
+ 329              		@ args = 0, pretend = 0, frame = 0
+ 330              		@ frame_needed = 0, uses_anonymous_args = 0
+ 331 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 332 0004 8146     		mov	r9, r0
+ 333 0006 0E46     		mov	r6, r1
+ 334 0008 114C     		ldr	r4, .L41
+ 335 000a 0025     		movs	r5, #0
+ 336 000c DFF84C80 		ldr	r8, .L41+12
+ 337 0010 104F     		ldr	r7, .L41+4
+ 338 0012 03E0     		b	.L37
+ 339              	.L36:
+ 340 0014 0135     		adds	r5, r5, #1
+ 341 0016 1434     		adds	r4, r4, #20
+ 342 0018 282D     		cmp	r5, #40
+ 343 001a 0DD0     		beq	.L40
+ 344              	.L37:
+ 345 001c 14F80C3C 		ldrb	r3, [r4, #-12]	@ zero_extendqisi2
+ 346 0020 B342     		cmp	r3, r6
+ 347 0022 F7D1     		bne	.L36
+ 348 0024 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 349 0026 002B     		cmp	r3, #0
+ 350 0028 F4D1     		bne	.L36
+ 351 002a 08EB4502 		add	r2, r8, r5, lsl #1
+ 352 002e 795D     		ldrb	r1, [r7, r5]	@ zero_extendqisi2
+ 353 0030 3046     		mov	r0, r6
+ 354 0032 FFF7FEFF 		bl	ADC_DRV_GetChanResult
+ 355 0036 EDE7     		b	.L36
+ 356              	.L40:
+ 357 0038 4846     		mov	r0, r9
+ 358 003a FFF7FEFF 		bl	PDB_DRV_SoftTriggerCmd
+ 359 003e 064A     		ldr	r2, .L41+8
+ 360 0040 52F82630 		ldr	r3, [r2, r6, lsl #2]
+ 361 0044 0133     		adds	r3, r3, #1
+ 362 0046 42F82630 		str	r3, [r2, r6, lsl #2]
+ 363 004a BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 364              	.L42:
+ 365 004e 00BF     		.align	2
+ 366              	.L41:
+ 367 0050 0C000000 		.word	adc_config_tbl+12
+ 368 0054 00000000 		.word	adc_results_to_adc_channel_index
+ 369 0058 00000000 		.word	mgl_adc_counter
+ 370 005c 00000000 		.word	adc_interrupt_values
+ 372              		.section	.text.ADC1_IRQHandler,"ax",%progbits
+ 373              		.align	1
+ 374              		.global	ADC1_IRQHandler
+ 375              		.syntax unified
+ 376              		.thumb
+ 377              		.thumb_func
+ 378              		.fpu fpv4-sp-d16
+ 380              	ADC1_IRQHandler:
+ 381              		@ args = 0, pretend = 0, frame = 0
+ 382              		@ frame_needed = 0, uses_anonymous_args = 0
+ 383 0000 08B5     		push	{r3, lr}
+ 384 0002 0021     		movs	r1, #0
+ 385 0004 0846     		mov	r0, r1
+ 386 0006 FFF7FEFF 		bl	ADC_IRQHandler
+ 387 000a 08BD     		pop	{r3, pc}
+ 389              		.section	.text.ADC2_IRQHandler,"ax",%progbits
+ 390              		.align	1
+ 391              		.global	ADC2_IRQHandler
+ 392              		.syntax unified
+ 393              		.thumb
+ 394              		.thumb_func
+ 395              		.fpu fpv4-sp-d16
+ 397              	ADC2_IRQHandler:
+ 398              		@ args = 0, pretend = 0, frame = 0
+ 399              		@ frame_needed = 0, uses_anonymous_args = 0
+ 400 0000 08B5     		push	{r3, lr}
+ 401 0002 0121     		movs	r1, #1
+ 402 0004 0846     		mov	r0, r1
+ 403 0006 FFF7FEFF 		bl	ADC_IRQHandler
+ 404 000a 08BD     		pop	{r3, pc}
+ 406              		.section	.text.adc_get_counter,"ax",%progbits
+ 407              		.align	1
+ 408              		.global	adc_get_counter
+ 409              		.syntax unified
+ 410              		.thumb
+ 411              		.thumb_func
+ 412              		.fpu fpv4-sp-d16
+ 414              	adc_get_counter:
+ 415              		@ args = 0, pretend = 0, frame = 0
+ 416              		@ frame_needed = 0, uses_anonymous_args = 0
+ 417 0000 38B5     		push	{r3, r4, r5, lr}
+ 418 0002 0546     		mov	r5, r0
+ 419 0004 0C46     		mov	r4, r1
+ 420 0006 0846     		mov	r0, r1
+ 421 0008 FFF7FEFF 		bl	INT_SYS_DisableIRQ
+ 422 000c 034B     		ldr	r3, .L49
+ 423 000e 53F82550 		ldr	r5, [r3, r5, lsl #2]
+ 424 0012 2046     		mov	r0, r4
+ 425 0014 FFF7FEFF 		bl	INT_SYS_EnableIRQ
+ 426 0018 2846     		mov	r0, r5
+ 427 001a 38BD     		pop	{r3, r4, r5, pc}
+ 428              	.L50:
+ 429              		.align	2
+ 430              	.L49:
+ 431 001c 00000000 		.word	mgl_adc_counter
+ 433              		.section	.text.adc_get_measurement_range,"ax",%progbits
+ 434              		.align	1
+ 435              		.global	adc_get_measurement_range
+ 436              		.syntax unified
+ 437              		.thumb
+ 438              		.thumb_func
+ 439              		.fpu fpv4-sp-d16
+ 441              	adc_get_measurement_range:
+ 442              		@ args = 0, pretend = 0, frame = 0
+ 443              		@ frame_needed = 0, uses_anonymous_args = 0
+ 444 0000 08B5     		push	{r3, lr}
+ 445 0002 00EB8002 		add	r2, r0, r0, lsl #2
+ 446 0006 034B     		ldr	r3, .L53
+ 447 0008 03EB8203 		add	r3, r3, r2, lsl #2
+ 448 000c 5968     		ldr	r1, [r3, #4]
+ 449 000e FFF7FEFF 		bl	modulhardwarecode_adc_get_vrefh2
+ 450 0012 08BD     		pop	{r3, pc}
+ 451              	.L54:
+ 452              		.align	2
+ 453              	.L53:
+ 454 0014 00000000 		.word	adc_config_tbl
+ 456              		.section	.text.adc_get_module_type,"ax",%progbits
+ 457              		.align	1
+ 458              		.global	adc_get_module_type
+ 459              		.syntax unified
+ 460              		.thumb
+ 461              		.thumb_func
+ 462              		.fpu fpv4-sp-d16
+ 464              	adc_get_module_type:
+ 465              		@ args = 0, pretend = 0, frame = 0
+ 466              		@ frame_needed = 0, uses_anonymous_args = 0
+ 467 0000 08B5     		push	{r3, lr}
+ 468 0002 4FF40870 		mov	r0, #544
+ 469 0006 FFF7FEFF 		bl	ee_read
+ 470 000a 08B1     		cbz	r0, .L57
+ 471 000c 0088     		ldrh	r0, [r0]
+ 472              	.L56:
+ 473 000e 08BD     		pop	{r3, pc}
+ 474              	.L57:
+ 475 0010 0020     		movs	r0, #0
+ 476 0012 FCE7     		b	.L56
+ 478              		.section	.text.adc_copy_results_from_interrupt,"ax",%progbits
+ 479              		.align	1
+ 480              		.global	adc_copy_results_from_interrupt
+ 481              		.syntax unified
+ 482              		.thumb
+ 483              		.thumb_func
+ 484              		.fpu fpv4-sp-d16
+ 486              	adc_copy_results_from_interrupt:
+ 487              		@ args = 0, pretend = 0, frame = 0
+ 488              		@ frame_needed = 0, uses_anonymous_args = 0
+ 489 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 490 0004 0446     		mov	r4, r0
+ 491 0006 8846     		mov	r8, r1
+ 492 0008 1646     		mov	r6, r2
+ 493 000a 1D46     		mov	r5, r3
+ 494 000c 1946     		mov	r1, r3
+ 495 000e FFF7FEFF 		bl	adc_get_counter
+ 496 0012 3368     		ldr	r3, [r6]
+ 497 0014 8342     		cmp	r3, r0
+ 498 0016 01D1     		bne	.L65
+ 499              	.L59:
+ 500 0018 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 501              	.L65:
+ 502 001c 0746     		mov	r7, r0
+ 503 001e 0123     		movs	r3, #1
+ 504 0020 88F80030 		strb	r3, [r8]
+ 505 0024 2846     		mov	r0, r5
+ 506 0026 FFF7FEFF 		bl	INT_SYS_DisableIRQ
+ 507 002a 114A     		ldr	r2, .L67
+ 508 002c 0023     		movs	r3, #0
+ 509 002e DFF84CE0 		ldr	lr, .L67+12
+ 510 0032 1048     		ldr	r0, .L67+4
+ 511 0034 03E0     		b	.L62
+ 512              	.L61:
+ 513 0036 0133     		adds	r3, r3, #1
+ 514 0038 1432     		adds	r2, r2, #20
+ 515 003a 282B     		cmp	r3, #40
+ 516 003c 0DD0     		beq	.L66
+ 517              	.L62:
+ 518 003e 12F80C1C 		ldrb	r1, [r2, #-12]	@ zero_extendqisi2
+ 519 0042 A142     		cmp	r1, r4
+ 520 0044 F7D1     		bne	.L61
+ 521 0046 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
+ 522 0048 0029     		cmp	r1, #0
+ 523 004a F4D1     		bne	.L61
+ 524 004c 03EB8301 		add	r1, r3, r3, lsl #2
+ 525 0050 30F813C0 		ldrh	ip, [r0, r3, lsl #1]
+ 526 0054 2EF811C0 		strh	ip, [lr, r1, lsl #1]	@ movhi
+ 527 0058 EDE7     		b	.L61
+ 528              	.L66:
+ 529 005a 074A     		ldr	r2, .L67+8
+ 530 005c 52F82430 		ldr	r3, [r2, r4, lsl #2]
+ 531 0060 0133     		adds	r3, r3, #1
+ 532 0062 42F82430 		str	r3, [r2, r4, lsl #2]
+ 533 0066 2846     		mov	r0, r5
+ 534 0068 FFF7FEFF 		bl	INT_SYS_EnableIRQ
+ 535 006c 3760     		str	r7, [r6]
+ 536 006e D3E7     		b	.L59
+ 537              	.L68:
+ 538              		.align	2
+ 539              	.L67:
+ 540 0070 0C000000 		.word	adc_config_tbl+12
+ 541 0074 00000000 		.word	adc_interrupt_values
+ 542 0078 00000000 		.word	.LANCHOR1
+ 543 007c 00000000 		.word	adc_results
+ 545              		.section	.text.adc_processing,"ax",%progbits
+ 546              		.align	1
+ 547              		.global	adc_processing
+ 548              		.syntax unified
+ 549              		.thumb
+ 550              		.thumb_func
+ 551              		.fpu fpv4-sp-d16
+ 553              	adc_processing:
+ 554              		@ args = 0, pretend = 0, frame = 24
+ 555              		@ frame_needed = 0, uses_anonymous_args = 0
+ 556 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 557 0004 89B0     		sub	sp, sp, #36
+ 558 0006 0390     		str	r0, [sp, #12]
+ 559 0008 0291     		str	r1, [sp, #8]
+ 560 000a 0020     		movs	r0, #0
+ 561 000c 8DF81F00 		strb	r0, [sp, #31]
+ 562 0010 8DF81E00 		strb	r0, [sp, #30]
+ 563 0014 634D     		ldr	r5, .L89
+ 564 0016 2723     		movs	r3, #39
+ 565 0018 2A46     		mov	r2, r5
+ 566 001a 0DF11F01 		add	r1, sp, #31
+ 567 001e FFF7FEFF 		bl	adc_copy_results_from_interrupt
+ 568 0022 614C     		ldr	r4, .L89+4
+ 569 0024 2823     		movs	r3, #40
+ 570 0026 2246     		mov	r2, r4
+ 571 0028 0DF11E01 		add	r1, sp, #30
+ 572 002c 0120     		movs	r0, #1
+ 573 002e FFF7FEFF 		bl	adc_copy_results_from_interrupt
+ 574 0032 2A68     		ldr	r2, [r5]
+ 575 0034 5D4B     		ldr	r3, .L89+8
+ 576 0036 1B68     		ldr	r3, [r3]
+ 577 0038 D31A     		subs	r3, r2, r3
+ 578 003a 0493     		str	r3, [sp, #16]
+ 579 003c 2268     		ldr	r2, [r4]
+ 580 003e 5C4B     		ldr	r3, .L89+12
+ 581 0040 1B68     		ldr	r3, [r3]
+ 582 0042 D31A     		subs	r3, r2, r3
+ 583 0044 0593     		str	r3, [sp, #20]
+ 584 0046 9DF81F30 		ldrb	r3, [sp, #31]	@ zero_extendqisi2
+ 585 004a 012B     		cmp	r3, #1
+ 586 004c 27D0     		beq	.L70
+ 587 004e 9DF81E30 		ldrb	r3, [sp, #30]	@ zero_extendqisi2
+ 588 0052 012B     		cmp	r3, #1
+ 589 0054 23D0     		beq	.L70
+ 590              	.L71:
+ 591 0056 049B     		ldr	r3, [sp, #16]
+ 592 0058 0F2B     		cmp	r3, #15
+ 593 005a 1DD9     		bls	.L69
+ 594 005c 059B     		ldr	r3, [sp, #20]
+ 595 005e 0F2B     		cmp	r3, #15
+ 596 0060 1AD9     		bls	.L69
+ 597 0062 504B     		ldr	r3, .L89
+ 598 0064 1A68     		ldr	r2, [r3]
+ 599 0066 514B     		ldr	r3, .L89+8
+ 600 0068 1A60     		str	r2, [r3]
+ 601 006a 4F4B     		ldr	r3, .L89+4
+ 602 006c 1A68     		ldr	r2, [r3]
+ 603 006e 504B     		ldr	r3, .L89+12
+ 604 0070 1A60     		str	r2, [r3]
+ 605 0072 0399     		ldr	r1, [sp, #12]
+ 606 0074 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 607 0076 0133     		adds	r3, r3, #1
+ 608 0078 DBB2     		uxtb	r3, r3
+ 609 007a 0B70     		strb	r3, [r1]
+ 610 007c 4D4A     		ldr	r2, .L89+16
+ 611 007e 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 612 0080 9A42     		cmp	r2, r3
+ 613 0082 05D2     		bcs	.L85
+ 614 0084 0023     		movs	r3, #0
+ 615 0086 0B70     		strb	r3, [r1]
+ 616 0088 4B4A     		ldr	r2, .L89+20
+ 617 008a 1368     		ldr	r3, [r2]
+ 618 008c 0133     		adds	r3, r3, #1
+ 619 008e 1360     		str	r3, [r2]
+ 620              	.L85:
+ 621 0090 039B     		ldr	r3, [sp, #12]
+ 622 0092 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 623 0094 FFF7FEFF 		bl	modulhardwarecode_adc_multiplex
+ 624              	.L69:
+ 625 0098 09B0     		add	sp, sp, #36
+ 626              		@ sp needed
+ 627 009a BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 628              	.L70:
+ 629 009e 474C     		ldr	r4, .L89+24
+ 630 00a0 474F     		ldr	r7, .L89+28
+ 631 00a2 484D     		ldr	r5, .L89+32
+ 632 00a4 DFF82C91 		ldr	r9, .L89+48
+ 633 00a8 04F5487B 		add	fp, r4, #800
+ 634 00ac 1EE0     		b	.L83
+ 635              	.L72:
+ 636 00ae 2B88     		ldrh	r3, [r5]
+ 637 00b0 6B80     		strh	r3, [r5, #2]	@ movhi
+ 638              	.L73:
+ 639 00b2 2E46     		mov	r6, r5
+ 640 00b4 B5F80280 		ldrh	r8, [r5, #2]
+ 641 00b8 029B     		ldr	r3, [sp, #8]
+ 642 00ba 23B1     		cbz	r3, .L74
+ 643 00bc 92F810A0 		ldrb	r10, [r2, #16]	@ zero_extendqisi2
+ 644 00c0 BAF1000F 		cmp	r10, #0
+ 645 00c4 2AD1     		bne	.L88
+ 646              	.L74:
+ 647 00c6 3289     		ldrh	r2, [r6, #8]
+ 648 00c8 57F8043F 		ldr	r3, [r7, #4]!
+ 649 00cc 9B1A     		subs	r3, r3, r2
+ 650 00ce 4344     		add	r3, r3, r8
+ 651 00d0 3B60     		str	r3, [r7]
+ 652 00d2 3D4A     		ldr	r2, .L89+36
+ 653 00d4 A2FB0338 		umull	r3, r8, r2, r3
+ 654 00d8 4FEA1818 		lsr	r8, r8, #4
+ 655 00dc A6F80880 		strh	r8, [r6, #8]	@ movhi
+ 656 00e0 1434     		adds	r4, r4, #20
+ 657 00e2 0A35     		adds	r5, r5, #10
+ 658 00e4 09F10109 		add	r9, r9, #1
+ 659 00e8 5C45     		cmp	r4, fp
+ 660 00ea B4D0     		beq	.L71
+ 661              	.L83:
+ 662 00ec 2246     		mov	r2, r4
+ 663 00ee 237B     		ldrb	r3, [r4, #12]	@ zero_extendqisi2
+ 664 00f0 002B     		cmp	r3, #0
+ 665 00f2 DCD0     		beq	.L72
+ 666 00f4 039B     		ldr	r3, [sp, #12]
+ 667 00f6 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 668 00f8 637B     		ldrb	r3, [r4, #13]	@ zero_extendqisi2
+ 669 00fa 9942     		cmp	r1, r3
+ 670 00fc D9D1     		bne	.L73
+ 671 00fe 049B     		ldr	r3, [sp, #16]
+ 672 0100 0F2B     		cmp	r3, #15
+ 673 0102 D6D9     		bls	.L73
+ 674 0104 059B     		ldr	r3, [sp, #20]
+ 675 0106 0F2B     		cmp	r3, #15
+ 676 0108 D3D9     		bls	.L73
+ 677 010a 99F80030 		ldrb	r3, [r9]	@ zero_extendqisi2
+ 678 010e 03EB8303 		add	r3, r3, r3, lsl #2
+ 679 0112 2C49     		ldr	r1, .L89+32
+ 680 0114 31F81330 		ldrh	r3, [r1, r3, lsl #1]
+ 681 0118 6B80     		strh	r3, [r5, #2]	@ movhi
+ 682 011a CAE7     		b	.L73
+ 683              	.L88:
+ 684 011c D089     		ldrh	r0, [r2, #14]
+ 685 011e 00F22220 		addw	r0, r0, #546
+ 686 0122 FFF7FEFF 		bl	ee_read
+ 687 0126 78B1     		cbz	r0, .L75
+ 688 0128 B0F90030 		ldrsh	r3, [r0]
+ 689 012c B3F1FF3F 		cmp	r3, #-1
+ 690 0130 0AD0     		beq	.L75
+ 691 0132 AAF1030A 		sub	r10, r10, #3
+ 692 0136 BAF1070F 		cmp	r10, #7
+ 693 013a 30D8     		bhi	.L77
+ 694 013c DFE80AF0 		tbb	[pc, r10]
+ 695              	.L79:
+ 696 0140 07       		.byte	(.L81-.L79)/2
+ 697 0141 2F       		.byte	(.L77-.L79)/2
+ 698 0142 2F       		.byte	(.L77-.L79)/2
+ 699 0143 2F       		.byte	(.L77-.L79)/2
+ 700 0144 12       		.byte	(.L80-.L79)/2
+ 701 0145 2F       		.byte	(.L77-.L79)/2
+ 702 0146 1B       		.byte	(.L78-.L79)/2
+ 703 0147 1B       		.byte	(.L78-.L79)/2
+ 704              		.p2align 1
+ 705              	.L75:
+ 706 0148 0023     		movs	r3, #0
+ 707 014a F380     		strh	r3, [r6, #6]	@ movhi
+ 708 014c BBE7     		b	.L74
+ 709              	.L81:
+ 710 014e 0322     		movs	r2, #3
+ 711 0150 0092     		str	r2, [sp]
+ 712 0152 B5F90230 		ldrsh	r3, [r5, #2]
+ 713 0156 811D     		adds	r1, r0, #6
+ 714 0158 FFF7FEFF 		bl	os_util_lookup1D
+ 715 015c E880     		strh	r0, [r5, #6]	@ movhi
+ 716              	.L82:
+ 717 015e B6F80680 		ldrh	r8, [r6, #6]
+ 718 0162 B0E7     		b	.L74
+ 719              	.L80:
+ 720 0164 0322     		movs	r2, #3
+ 721 0166 0092     		str	r2, [sp]
+ 722 0168 B5F90230 		ldrsh	r3, [r5, #2]
+ 723 016c 811D     		adds	r1, r0, #6
+ 724 016e FFF7FEFF 		bl	os_util_lookup1D
+ 725 0172 E880     		strh	r0, [r5, #6]	@ movhi
+ 726 0174 F3E7     		b	.L82
+ 727              	.L78:
+ 728 0176 6A88     		ldrh	r2, [r5, #2]
+ 729 0178 03FB02F3 		mul	r3, r3, r2
+ 730 017c 134A     		ldr	r2, .L89+40
+ 731 017e A2FB0323 		umull	r2, r3, r2, r3
+ 732 0182 B0F90420 		ldrsh	r2, [r0, #4]
+ 733 0186 1249     		ldr	r1, .L89+44
+ 734 0188 81FB0201 		smull	r0, r1, r1, r2
+ 735 018c D217     		asrs	r2, r2, #31
+ 736 018e C2EBA112 		rsb	r2, r2, r1, asr #6
+ 737 0192 02EB9343 		add	r3, r2, r3, lsr #18
+ 738 0196 23EAE373 		bic	r3, r3, r3, asr #31
+ 739 019a EB80     		strh	r3, [r5, #6]	@ movhi
+ 740 019c DFE7     		b	.L82
+ 741              	.L77:
+ 742 019e 0023     		movs	r3, #0
+ 743 01a0 EB80     		strh	r3, [r5, #6]	@ movhi
+ 744 01a2 DCE7     		b	.L82
+ 745              	.L90:
+ 746              		.align	2
+ 747              	.L89:
+ 748 01a4 00000000 		.word	.LANCHOR2
+ 749 01a8 00000000 		.word	.LANCHOR3
+ 750 01ac 00000000 		.word	.LANCHOR4
+ 751 01b0 00000000 		.word	.LANCHOR5
+ 752 01b4 00000000 		.word	.LANCHOR0
+ 753 01b8 00000000 		.word	.LANCHOR6
+ 754 01bc 00000000 		.word	adc_config_tbl
+ 755 01c0 FCFFFFFF 		.word	adc_filter_sum-4
+ 756 01c4 00000000 		.word	adc_results
+ 757 01c8 C94216B2 		.word	-1307163959
+ 758 01cc 83DE1B43 		.word	1125899907
+ 759 01d0 D34D6210 		.word	274877907
+ 760 01d4 00000000 		.word	adc_results_to_adc_channel_index
+ 762              		.section	.text.adc_wait_first_measurements,"ax",%progbits
+ 763              		.align	1
+ 764              		.global	adc_wait_first_measurements
+ 765              		.syntax unified
+ 766              		.thumb
+ 767              		.thumb_func
+ 768              		.fpu fpv4-sp-d16
+ 770              	adc_wait_first_measurements:
+ 771              		@ args = 0, pretend = 0, frame = 0
+ 772              		@ frame_needed = 0, uses_anonymous_args = 0
+ 773 0000 70B5     		push	{r4, r5, r6, lr}
+ 774 0002 0446     		mov	r4, r0
+ 775 0004 0D46     		mov	r5, r1
+ 776 0006 094B     		ldr	r3, .L97
+ 777 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 778 000a 5BB1     		cbz	r3, .L92
+ 779 000c 084B     		ldr	r3, .L97+4
+ 780 000e 1B68     		ldr	r3, [r3]
+ 781 0010 3BB9     		cbnz	r3, .L91
+ 782 0012 074E     		ldr	r6, .L97+4
+ 783              	.L94:
+ 784 0014 2946     		mov	r1, r5
+ 785 0016 2046     		mov	r0, r4
+ 786 0018 FFF7FEFF 		bl	adc_processing
+ 787 001c 3368     		ldr	r3, [r6]
+ 788 001e 002B     		cmp	r3, #0
+ 789 0020 F8D0     		beq	.L94
+ 790              	.L91:
+ 791 0022 70BD     		pop	{r4, r5, r6, pc}
+ 792              	.L92:
+ 793 0024 FFF7FEFF 		bl	adc_processing
+ 794 0028 FBE7     		b	.L91
+ 795              	.L98:
+ 796 002a 00BF     		.align	2
+ 797              	.L97:
+ 798 002c 00000000 		.word	.LANCHOR0
+ 799 0030 00000000 		.word	.LANCHOR6
+ 801              		.section	.text.add_to_float_avg,"ax",%progbits
+ 802              		.align	1
+ 803              		.global	add_to_float_avg
+ 804              		.syntax unified
+ 805              		.thumb
+ 806              		.thumb_func
+ 807              		.fpu fpv4-sp-d16
+ 809              	add_to_float_avg:
+ 810              		@ args = 0, pretend = 0, frame = 0
+ 811              		@ frame_needed = 0, uses_anonymous_args = 0
+ 812              		@ link register save eliminated.
+ 813 0000 038E     		ldrh	r3, [r0, #48]
+ 814 0002 93B1     		cbz	r3, .L99
+ 815 0004 172B     		cmp	r3, #23
+ 816 0006 84BF     		itt	hi
+ 817 0008 1723     		movhi	r3, #23
+ 818 000a 0386     		strhhi	r3, [r0, #48]	@ movhi
+ 819 000c 90F82E30 		ldrb	r3, [r0, #46]	@ zero_extendqisi2
+ 820 0010 20F81310 		strh	r1, [r0, r3, lsl #1]	@ movhi
+ 821 0014 0133     		adds	r3, r3, #1
+ 822 0016 DBB2     		uxtb	r3, r3
+ 823 0018 018E     		ldrh	r1, [r0, #48]
+ 824 001a 93FBF1F2 		sdiv	r2, r3, r1
+ 825 001e 01FB1233 		mls	r3, r1, r2, r3
+ 826 0022 80F82E30 		strb	r3, [r0, #46]
+ 827 0026 0123     		movs	r3, #1
+ 828 0028 0386     		strh	r3, [r0, #48]	@ movhi
+ 829              	.L99:
+ 830 002a 7047     		bx	lr
+ 832              		.section	.text.adc_calc_float_avg,"ax",%progbits
+ 833              		.align	1
+ 834              		.global	adc_calc_float_avg
+ 835              		.syntax unified
+ 836              		.thumb
+ 837              		.thumb_func
+ 838              		.fpu fpv4-sp-d16
+ 840              	adc_calc_float_avg:
+ 841              		@ args = 0, pretend = 0, frame = 0
+ 842              		@ frame_needed = 0, uses_anonymous_args = 0
+ 843              		@ link register save eliminated.
+ 844 0000 038E     		ldrh	r3, [r0, #48]
+ 845 0002 A3B1     		cbz	r3, .L106
+ 846 0004 30B4     		push	{r4, r5}
+ 847 0006 172B     		cmp	r3, #23
+ 848 0008 01D9     		bls	.L104
+ 849 000a 1723     		movs	r3, #23
+ 850 000c 0386     		strh	r3, [r0, #48]	@ movhi
+ 851              	.L104:
+ 852 000e 058E     		ldrh	r5, [r0, #48]
+ 853 0010 811E     		subs	r1, r0, #2
+ 854 0012 0022     		movs	r2, #0
+ 855 0014 1346     		mov	r3, r2
+ 856              	.L105:
+ 857 0016 31F8024F 		ldrh	r4, [r1, #2]!
+ 858 001a 2344     		add	r3, r3, r4
+ 859 001c 0132     		adds	r2, r2, #1
+ 860 001e 94B2     		uxth	r4, r2
+ 861 0020 A542     		cmp	r5, r4
+ 862 0022 F8D8     		bhi	.L105
+ 863 0024 B3FBF5F0 		udiv	r0, r3, r5
+ 864 0028 80B2     		uxth	r0, r0
+ 865 002a 30BC     		pop	{r4, r5}
+ 866 002c 7047     		bx	lr
+ 867              	.L106:
+ 868 002e 0020     		movs	r0, #0
+ 869 0030 80B2     		uxth	r0, r0
+ 870 0032 7047     		bx	lr
+ 872              		.section	.text.get_mean_analog_value,"ax",%progbits
+ 873              		.align	1
+ 874              		.global	get_mean_analog_value
+ 875              		.syntax unified
+ 876              		.thumb
+ 877              		.thumb_func
+ 878              		.fpu fpv4-sp-d16
+ 880              	get_mean_analog_value:
+ 881              		@ args = 0, pretend = 0, frame = 0
+ 882              		@ frame_needed = 0, uses_anonymous_args = 0
+ 883              		@ link register save eliminated.
+ 884 0000 0738     		subs	r0, r0, #7
+ 885 0002 034B     		ldr	r3, .L114
+ 886 0004 03EBC002 		add	r2, r3, r0, lsl #3
+ 887 0008 9180     		strh	r1, [r2, #4]	@ movhi
+ 888 000a 33F83000 		ldrh	r0, [r3, r0, lsl #3]
+ 889 000e 7047     		bx	lr
+ 890              	.L115:
+ 891              		.align	2
+ 892              	.L114:
+ 893 0010 00000000 		.word	mgl_mean_current_value
+ 895              		.section	.text.get_mean_analog_value_exact,"ax",%progbits
+ 896              		.align	1
+ 897              		.global	get_mean_analog_value_exact
+ 898              		.syntax unified
+ 899              		.thumb
+ 900              		.thumb_func
+ 901              		.fpu fpv4-sp-d16
+ 903              	get_mean_analog_value_exact:
+ 904              		@ args = 0, pretend = 0, frame = 0
+ 905              		@ frame_needed = 0, uses_anonymous_args = 0
+ 906              		@ link register save eliminated.
+ 907 0000 0738     		subs	r0, r0, #7
+ 908 0002 024B     		ldr	r3, .L117
+ 909 0004 33F83000 		ldrh	r0, [r3, r0, lsl #3]
+ 910 0008 7047     		bx	lr
+ 911              	.L118:
+ 912 000a 00BF     		.align	2
+ 913              	.L117:
+ 914 000c 00000000 		.word	mgl_mean_current_value
+ 916              		.global	mgl_adc_results_counter
+ 917              		.comm	mgl_adc_counter,8,4
+ 918              		.global	mgl_adc_results_mpx_counter
+ 919              		.comm	adc_results_to_adc_channel_index,40,4
+ 920              		.global	mgl_multiplex_group_max
+ 921              		.comm	adc_interrupt_values,80,4
+ 922              		.comm	adc_results,400,4
+ 923              		.comm	adc_filter_sum,160,4
+ 924              		.comm	mgl_mean_current_value,64,4
+ 925              		.section	.bss.adc1_counter.10959,"aw",%nobits
+ 926              		.align	2
+ 927              		.set	.LANCHOR2,. + 0
+ 930              	adc1_counter.10959:
+ 931 0000 00000000 		.space	4
+ 932              		.section	.bss.adc2_counter.10960,"aw",%nobits
+ 933              		.align	2
+ 934              		.set	.LANCHOR3,. + 0
+ 937              	adc2_counter.10960:
+ 938 0000 00000000 		.space	4
+ 939              		.section	.bss.mgl_adc_results_counter,"aw",%nobits
+ 940              		.align	2
+ 941              		.set	.LANCHOR1,. + 0
+ 944              	mgl_adc_results_counter:
+ 945 0000 00000000 		.space	8
+ 945      00000000 
+ 946              		.section	.bss.mgl_adc_results_mpx_counter,"aw",%nobits
+ 947              		.align	2
+ 948              		.set	.LANCHOR6,. + 0
+ 951              	mgl_adc_results_mpx_counter:
+ 952 0000 00000000 		.space	4
+ 953              		.section	.bss.mgl_multiplex_group_max,"aw",%nobits
+ 954              		.set	.LANCHOR0,. + 0
+ 957              	mgl_multiplex_group_max:
+ 958 0000 00       		.space	1
+ 959              		.section	.bss.multiplex_adc1_counter.10963,"aw",%nobits
+ 960              		.align	2
+ 961              		.set	.LANCHOR4,. + 0
+ 964              	multiplex_adc1_counter.10963:
+ 965 0000 00000000 		.space	4
+ 966              		.section	.bss.multiplex_adc2_counter.10964,"aw",%nobits
+ 967              		.align	2
+ 968              		.set	.LANCHOR5,. + 0
+ 971              	multiplex_adc2_counter.10964:
+ 972 0000 00000000 		.space	4
+ 973              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2019-q3-update) 8.3.1 20190703 (release) [gc

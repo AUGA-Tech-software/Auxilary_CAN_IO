@@ -1,0 +1,239 @@
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"user_api_ai.c"
+  14              		.text
+  15              		.section	.text.user_ai_pin_sample_count,"ax",%progbits
+  16              		.align	1
+  17              		.global	user_ai_pin_sample_count
+  18              		.arch armv7e-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	user_ai_pin_sample_count:
+  25              		@ args = 0, pretend = 0, frame = 0
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27              		@ link register save eliminated.
+  28 0000 2728     		cmp	r0, #39
+  29 0002 12D8     		bhi	.L4
+  30 0004 00EB8003 		add	r3, r0, r0, lsl #2
+  31 0008 094A     		ldr	r2, .L5
+  32 000a 02EB8303 		add	r3, r2, r3, lsl #2
+  33 000e 1B7B     		ldrb	r3, [r3, #12]	@ zero_extendqisi2
+  34 0010 13B1     		cbz	r3, .L3
+  35 0012 084B     		ldr	r3, .L5+4
+  36 0014 1868     		ldr	r0, [r3]
+  37 0016 7047     		bx	lr
+  38              	.L3:
+  39 0018 00EB8000 		add	r0, r0, r0, lsl #2
+  40 001c 044B     		ldr	r3, .L5
+  41 001e 13F82020 		ldrb	r2, [r3, r0, lsl #2]	@ zero_extendqisi2
+  42 0022 054B     		ldr	r3, .L5+8
+  43 0024 53F82200 		ldr	r0, [r3, r2, lsl #2]
+  44 0028 7047     		bx	lr
+  45              	.L4:
+  46 002a 0020     		movs	r0, #0
+  47 002c 7047     		bx	lr
+  48              	.L6:
+  49 002e 00BF     		.align	2
+  50              	.L5:
+  51 0030 00000000 		.word	adc_config_tbl
+  52 0034 00000000 		.word	mgl_adc_results_mpx_counter
+  53 0038 00000000 		.word	mgl_adc_results_counter
+  55              		.section	.text.user_ai_set_measurement_range,"ax",%progbits
+  56              		.align	1
+  57              		.global	user_ai_set_measurement_range
+  58              		.syntax unified
+  59              		.thumb
+  60              		.thumb_func
+  61              		.fpu fpv4-sp-d16
+  63              	user_ai_set_measurement_range:
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66 0000 08B5     		push	{r3, lr}
+  67 0002 FFF7FEFF 		bl	modulhardwarecode_adc_set_measurement_range
+  68 0006 08BD     		pop	{r3, pc}
+  70              		.section	.text.user_ai_get,"ax",%progbits
+  71              		.align	1
+  72              		.global	user_ai_get
+  73              		.syntax unified
+  74              		.thumb
+  75              		.thumb_func
+  76              		.fpu fpv4-sp-d16
+  78              	user_ai_get:
+  79              		@ args = 0, pretend = 0, frame = 0
+  80              		@ frame_needed = 0, uses_anonymous_args = 0
+  81              		@ link register save eliminated.
+  82 0000 2728     		cmp	r0, #39
+  83 0002 06D8     		bhi	.L11
+  84 0004 00EB8000 		add	r0, r0, r0, lsl #2
+  85 0008 034B     		ldr	r3, .L12
+  86 000a 03EB4000 		add	r0, r3, r0, lsl #1
+  87 000e 4088     		ldrh	r0, [r0, #2]
+  88 0010 7047     		bx	lr
+  89              	.L11:
+  90 0012 0020     		movs	r0, #0
+  91 0014 7047     		bx	lr
+  92              	.L13:
+  93 0016 00BF     		.align	2
+  94              	.L12:
+  95 0018 00000000 		.word	adc_results
+  97              		.section	.text.user_ai_get_mv,"ax",%progbits
+  98              		.align	1
+  99              		.global	user_ai_get_mv
+ 100              		.syntax unified
+ 101              		.thumb
+ 102              		.thumb_func
+ 103              		.fpu fpv4-sp-d16
+ 105              	user_ai_get_mv:
+ 106              		@ args = 0, pretend = 0, frame = 0
+ 107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 108 0000 2728     		cmp	r0, #39
+ 109 0002 17D8     		bhi	.L16
+ 110 0004 38B5     		push	{r3, r4, r5, lr}
+ 111 0006 00EB8003 		add	r3, r0, r0, lsl #2
+ 112 000a 0B4A     		ldr	r2, .L23
+ 113 000c 02EB8303 		add	r3, r2, r3, lsl #2
+ 114 0010 9D68     		ldr	r5, [r3, #8]
+ 115 0012 0DB9     		cbnz	r5, .L22
+ 116 0014 0020     		movs	r0, #0
+ 117              	.L15:
+ 118 0016 38BD     		pop	{r3, r4, r5, pc}
+ 119              	.L22:
+ 120 0018 00EB8002 		add	r2, r0, r0, lsl #2
+ 121 001c 074B     		ldr	r3, .L23+4
+ 122 001e 03EB4203 		add	r3, r3, r2, lsl #1
+ 123 0022 5C88     		ldrh	r4, [r3, #2]
+ 124 0024 FFF7FEFF 		bl	adc_get_measurement_range
+ 125 0028 00FB04F0 		mul	r0, r0, r4
+ 126 002c B0FBF5F0 		udiv	r0, r0, r5
+ 127 0030 80B2     		uxth	r0, r0
+ 128 0032 F0E7     		b	.L15
+ 129              	.L16:
+ 130 0034 0020     		movs	r0, #0
+ 131 0036 7047     		bx	lr
+ 132              	.L24:
+ 133              		.align	2
+ 134              	.L23:
+ 135 0038 00000000 		.word	adc_config_tbl
+ 136 003c 00000000 		.word	adc_results
+ 138              		.section	.text.user_ai_get_cal,"ax",%progbits
+ 139              		.align	1
+ 140              		.global	user_ai_get_cal
+ 141              		.syntax unified
+ 142              		.thumb
+ 143              		.thumb_func
+ 144              		.fpu fpv4-sp-d16
+ 146              	user_ai_get_cal:
+ 147              		@ args = 0, pretend = 0, frame = 0
+ 148              		@ frame_needed = 0, uses_anonymous_args = 0
+ 149              		@ link register save eliminated.
+ 150 0000 2728     		cmp	r0, #39
+ 151 0002 06D8     		bhi	.L27
+ 152 0004 00EB8000 		add	r0, r0, r0, lsl #2
+ 153 0008 034B     		ldr	r3, .L28
+ 154 000a 03EB4000 		add	r0, r3, r0, lsl #1
+ 155 000e C088     		ldrh	r0, [r0, #6]
+ 156 0010 7047     		bx	lr
+ 157              	.L27:
+ 158 0012 0020     		movs	r0, #0
+ 159 0014 7047     		bx	lr
+ 160              	.L29:
+ 161 0016 00BF     		.align	2
+ 162              	.L28:
+ 163 0018 00000000 		.word	adc_results
+ 165              		.section	.text.user_ai_get_filtered,"ax",%progbits
+ 166              		.align	1
+ 167              		.global	user_ai_get_filtered
+ 168              		.syntax unified
+ 169              		.thumb
+ 170              		.thumb_func
+ 171              		.fpu fpv4-sp-d16
+ 173              	user_ai_get_filtered:
+ 174              		@ args = 0, pretend = 0, frame = 0
+ 175              		@ frame_needed = 0, uses_anonymous_args = 0
+ 176 0000 2728     		cmp	r0, #39
+ 177 0002 22D8     		bhi	.L33
+ 178 0004 38B5     		push	{r3, r4, r5, lr}
+ 179 0006 00EB8003 		add	r3, r0, r0, lsl #2
+ 180 000a 124A     		ldr	r2, .L40
+ 181 000c 02EB8303 		add	r3, r2, r3, lsl #2
+ 182 0010 9D68     		ldr	r5, [r3, #8]
+ 183 0012 E5B1     		cbz	r5, .L34
+ 184 0014 00EB8003 		add	r3, r0, r0, lsl #2
+ 185 0018 02EB8303 		add	r3, r2, r3, lsl #2
+ 186 001c 1B7C     		ldrb	r3, [r3, #16]	@ zero_extendqisi2
+ 187 001e 33B1     		cbz	r3, .L39
+ 188 0020 00EB8000 		add	r0, r0, r0, lsl #2
+ 189 0024 0C4B     		ldr	r3, .L40+4
+ 190 0026 03EB4000 		add	r0, r3, r0, lsl #1
+ 191 002a 0089     		ldrh	r0, [r0, #8]
+ 192 002c 10E0     		b	.L31
+ 193              	.L39:
+ 194 002e 00EB8002 		add	r2, r0, r0, lsl #2
+ 195 0032 094B     		ldr	r3, .L40+4
+ 196 0034 03EB4203 		add	r3, r3, r2, lsl #1
+ 197 0038 1C89     		ldrh	r4, [r3, #8]
+ 198 003a FFF7FEFF 		bl	adc_get_measurement_range
+ 199 003e 00FB04F0 		mul	r0, r0, r4
+ 200 0042 B0FBF5F0 		udiv	r0, r0, r5
+ 201 0046 80B2     		uxth	r0, r0
+ 202 0048 02E0     		b	.L31
+ 203              	.L33:
+ 204 004a 0020     		movs	r0, #0
+ 205 004c 7047     		bx	lr
+ 206              	.L34:
+ 207 004e 0020     		movs	r0, #0
+ 208              	.L31:
+ 209 0050 38BD     		pop	{r3, r4, r5, pc}
+ 210              	.L41:
+ 211 0052 00BF     		.align	2
+ 212              	.L40:
+ 213 0054 00000000 		.word	adc_config_tbl
+ 214 0058 00000000 		.word	adc_results
+ 216              		.section	.text.user_ai_get_mv_calib,"ax",%progbits
+ 217              		.align	1
+ 218              		.global	user_ai_get_mv_calib
+ 219              		.syntax unified
+ 220              		.thumb
+ 221              		.thumb_func
+ 222              		.fpu fpv4-sp-d16
+ 224              	user_ai_get_mv_calib:
+ 225              		@ args = 0, pretend = 0, frame = 0
+ 226              		@ frame_needed = 0, uses_anonymous_args = 0
+ 227 0000 08B5     		push	{r3, lr}
+ 228 0002 00EB8002 		add	r2, r0, r0, lsl #2
+ 229 0006 094B     		ldr	r3, .L48
+ 230 0008 03EB8203 		add	r3, r3, r2, lsl #2
+ 231 000c 1B7C     		ldrb	r3, [r3, #16]	@ zero_extendqisi2
+ 232 000e 43B1     		cbz	r3, .L47
+ 233 0010 2728     		cmp	r0, #39
+ 234 0012 09D8     		bhi	.L45
+ 235 0014 00EB8000 		add	r0, r0, r0, lsl #2
+ 236 0018 054B     		ldr	r3, .L48+4
+ 237 001a 03EB4000 		add	r0, r3, r0, lsl #1
+ 238 001e C088     		ldrh	r0, [r0, #6]
+ 239              	.L44:
+ 240 0020 08BD     		pop	{r3, pc}
+ 241              	.L47:
+ 242 0022 FFF7FEFF 		bl	user_ai_get_mv
+ 243 0026 FBE7     		b	.L44
+ 244              	.L45:
+ 245 0028 0020     		movs	r0, #0
+ 246 002a F9E7     		b	.L44
+ 247              	.L49:
+ 248              		.align	2
+ 249              	.L48:
+ 250 002c 00000000 		.word	adc_config_tbl
+ 251 0030 00000000 		.word	adc_results
+ 253              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2019-q3-update) 8.3.1 20190703 (release) [gc
