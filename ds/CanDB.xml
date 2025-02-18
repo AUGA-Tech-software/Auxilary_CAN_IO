@@ -14,15 +14,15 @@
       <IdentityGuid>32242844-45c7-4a5d-8ba2-27e57c58c904</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm Name="AUXIO6_TCM_CMD">
+      <SelectedCanTelegramm Name="AUXIO2_TCM_CMD">
         <BitRateSwitch>false</BitRateSwitch>
         <CANBusGW>NONE</CANBusGW>
         <CanBusNr>CAN_BUS_0</CanBusNr>
-        <CanID>0x189D5A35</CanID>
+        <CanID>0x18A7355A</CanID>
         <CanIDMask>0</CanIDMask>
         <DLC>8</DLC>
         <IdentityGuid>91c6ca8c-6da8-4460-aedf-041d0113a416</IdentityGuid>
-        <Message>CanId needs to be between 0 and 0x7ff</Message>
+        <Message>Duplicate CANID. Please choose a unique CanID.</Message>
         <MuxLength>0</MuxLength>
         <MuxStart>0</MuxStart>
         <MuxVal>0</MuxVal>
@@ -46,7 +46,7 @@
       <IdentityGuid>20918115-9a95-4df6-af1a-49e63c87fda7</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_TCM_CMD" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO2_TCM_CMD" />
       <VariableName>CMD_C2</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -61,7 +61,7 @@
       <IdentityGuid>aa24d76c-3913-411c-a6da-80884a8cfb5d</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_TCM_CMD" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO2_TCM_CMD" />
       <VariableName>CMD_C1</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -76,7 +76,7 @@
       <IdentityGuid>26e669c8-a30b-43bb-baf2-a9bdb5668d2b</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_TCM_CMD" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO2_TCM_CMD" />
       <VariableName>CMD_B1</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -91,7 +91,7 @@
       <IdentityGuid>a1914f8d-6a2c-4ce6-81df-a99268891757</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_TCM_CMD" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO2_TCM_CMD" />
       <VariableName>CMD_B8</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -106,7 +106,7 @@
       <IdentityGuid>523c77be-6ed4-4918-825b-e4e99c873d97</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_TCM_CMD" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO2_TCM_CMD" />
       <VariableName>CMD_C8</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -121,7 +121,7 @@
       <IdentityGuid>49cad800-ffa2-44eb-911c-4e44af43b1bb</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_TCM_CMD" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO2_TCM_CMD" />
       <VariableName>CMD_C7</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -136,7 +136,7 @@
       <IdentityGuid>9920509d-073d-4641-b74b-fcec6bd22acd</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_TCM_CMD" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO2_TCM_CMD" />
       <VariableName>CMD_C6</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -151,11 +151,11 @@
       <IdentityGuid>e4abc698-1324-4b2f-83d1-fbbbe99b7c57</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm Name="AUXIO7_TCM_STATUS">
+      <SelectedCanTelegramm Name="AUXIO1_TCM_STATUS">
         <BitRateSwitch>false</BitRateSwitch>
         <CANBusGW>NONE</CANBusGW>
         <CanBusNr>CAN_BUS_0</CanBusNr>
-        <CanID>0x189C5A35</CanID>
+        <CanID>0x18FED935</CanID>
         <CanIDMask>0</CanIDMask>
         <DLC>8</DLC>
         <IdentityGuid>aff73bd8-359a-432d-8ba9-e630c0b8bc9e</IdentityGuid>
@@ -183,7 +183,7 @@
       <IdentityGuid>bcfccbeb-2834-4129-8cb8-703e3c473fbc</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
       <VariableName>STATUS_C2</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -198,7 +198,7 @@
       <IdentityGuid>c0704fd8-4c1d-4b74-a851-0f51c4187596</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
       <VariableName>STATUS_C1</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -213,7 +213,7 @@
       <IdentityGuid>3cc9890e-8f13-4503-9229-f648defed1c3</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
       <VariableName>STATUS_B1</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -228,7 +228,7 @@
       <IdentityGuid>90717e32-0ea3-47d7-8457-30ebd4112dea</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
       <VariableName>STATUS_B8</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -243,7 +243,7 @@
       <IdentityGuid>817f9c1c-ea0b-476e-83fd-43d3fd53463d</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
       <VariableName>STATUS_C8</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -258,7 +258,7 @@
       <IdentityGuid>ea7bb2f8-9726-48ec-9dfe-aec77a54bb65</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
       <VariableName>STATUS_C7</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -273,7 +273,7 @@
       <IdentityGuid>663e0f67-dc92-4a89-ba0b-a2c19598b249</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
       <VariableName>STATUS_C6</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -288,7 +288,7 @@
       <IdentityGuid>3fb3852b-42fc-4916-a66c-a956ad479cfa</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
       <VariableName>STATUS_B6</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -303,7 +303,7 @@
       <IdentityGuid>aa90925b-e439-446e-884f-3fba24f8fce3</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
       <VariableName>STATUS_A6</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -318,15 +318,15 @@
       <IdentityGuid>d075a7b2-a05d-4b8d-94bf-c2ad41f5e940</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm Name="AUXIO_8_CURRENTS">
+      <SelectedCanTelegramm Name="AUXIO6_CURRENTS">
         <BitRateSwitch>false</BitRateSwitch>
         <CANBusGW>NONE</CANBusGW>
         <CanBusNr>CAN_BUS_0</CanBusNr>
-        <CanID>0x189B5A35</CanID>
+        <CanID>0x189D5A35</CanID>
         <CanIDMask>0</CanIDMask>
         <DLC>8</DLC>
         <IdentityGuid>a3b695cd-87ea-40cc-a715-f113b0f8327d</IdentityGuid>
-        <Message>Send period min must be less then max</Message>
+        <Message>Duplicate CANID. Please choose a unique CanID.</Message>
         <MuxLength>0</MuxLength>
         <MuxStart>0</MuxStart>
         <MuxVal>0</MuxVal>
@@ -350,7 +350,7 @@
       <IdentityGuid>40c4c201-d450-476f-affa-03c5ed18b7e0</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO_8_CURRENTS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_CURRENTS" />
       <VariableName>CUR_C2</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -365,7 +365,7 @@
       <IdentityGuid>b1efd6f3-f525-42ee-938b-2a2f18f3690a</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO_8_CURRENTS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_CURRENTS" />
       <VariableName>CUR_C1</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -380,7 +380,7 @@
       <IdentityGuid>d7325967-e673-4111-8c2c-d51e96e42c32</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO_8_CURRENTS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_CURRENTS" />
       <VariableName>CUR_B1</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -395,7 +395,7 @@
       <IdentityGuid>5dbecc73-d158-4840-bd7b-e2e2e8096a88</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO_8_CURRENTS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_CURRENTS" />
       <VariableName>CUR_B8</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -410,7 +410,7 @@
       <IdentityGuid>3659eaff-18b9-4bb2-b215-0b18e77c1525</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO_8_CURRENTS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_CURRENTS" />
       <VariableName>CUR_C8</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -425,7 +425,7 @@
       <IdentityGuid>a8be0768-58d2-4074-a081-c7b625ce253a</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO_8_CURRENTS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_CURRENTS" />
       <VariableName>CUR_C7</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -440,7 +440,7 @@
       <IdentityGuid>3d36c648-3f3a-436f-a577-298e19d6288f</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO_8_CURRENTS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_CURRENTS" />
       <VariableName>CUR_C6</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -455,7 +455,7 @@
       <IdentityGuid>e091008c-13e5-4ee3-861a-1af7b1aaf943</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
       <VariableName>STATUS_A5</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -470,7 +470,7 @@
       <IdentityGuid>4e36a882-7292-4736-bec4-57ac7e7f605b</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
       <VariableName>STATUS_C4</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -485,7 +485,7 @@
       <IdentityGuid>4c522515-7cf6-449f-bd20-19a6e60e389f</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
       <VariableName>STATUS_A4</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -500,7 +500,7 @@
       <IdentityGuid>ab9b2194-65c1-401e-aa2c-126c6cbe0853</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
       <VariableName>STATUS_A3</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -515,7 +515,7 @@
       <IdentityGuid>563a809f-d088-4cd1-a01b-9458e0153495</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_TCM_CMD" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO2_TCM_CMD" />
       <VariableName>CMD_B6</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -530,7 +530,7 @@
       <IdentityGuid>98e9ae1e-0d55-4346-9f8e-f33432706b15</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_TCM_CMD" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO2_TCM_CMD" />
       <VariableName>CMD_A6</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -545,7 +545,7 @@
       <IdentityGuid>bece6eab-8257-4b14-8604-ae63b608240b</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_TCM_CMD" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO2_TCM_CMD" />
       <VariableName>CMD_A5</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -560,7 +560,7 @@
       <IdentityGuid>b15ce875-17c2-44b7-b6de-3248144490bc</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_TCM_CMD" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO2_TCM_CMD" />
       <VariableName>CMD_C4</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -575,7 +575,7 @@
       <IdentityGuid>b8f45bdd-4d39-46c7-8fb3-7c2435b615d1</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_TCM_CMD" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO2_TCM_CMD" />
       <VariableName>CMD_A4</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -590,7 +590,7 @@
       <IdentityGuid>63fcf116-4095-4663-b5b1-32529df7a43e</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_TCM_CMD" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO2_TCM_CMD" />
       <VariableName>CMD_A3</VariableName>
     </CanDataPoint>
     <CanDataPoint>
@@ -605,13 +605,13 @@
       <IdentityGuid>e036231f-351e-4309-965b-cb543cf2447a</IdentityGuid>
       <Offset>0</Offset>
       <Selected>false</Selected>
-      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
+      <SelectedCanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
       <VariableName>STATUS_TEST</VariableName>
     </CanDataPoint>
   </CanDataPoints>
   <CanTelegramms>
-    <CanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_TCM_CMD" />
-    <CanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO7_TCM_STATUS" />
-    <CanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO_8_CURRENTS" />
+    <CanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO2_TCM_CMD" />
+    <CanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO1_TCM_STATUS" />
+    <CanTelegramm xmlns:exs="https://extendedxmlserializer.github.io/v2" exs:entity="AUXIO6_CURRENTS" />
   </CanTelegramms>
 </CanDB>

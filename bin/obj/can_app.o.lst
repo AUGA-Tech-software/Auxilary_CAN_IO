@@ -398,7 +398,7 @@
  407              	.L46:
  408              		.align	2
  409              	.L45:
- 410 0020 355A9D18 		.word	412965429
+ 410 0020 5A35A718 		.word	413611354
  412              		.section	.text.user_can_init,"ax",%progbits
  413              		.align	1
  414              		.global	user_can_init

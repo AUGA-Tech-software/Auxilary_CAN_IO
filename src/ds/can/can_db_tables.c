@@ -2,7 +2,7 @@
 /*--------------------------------------------------------------------------*/
 /** \file     can_db_tables.c
 *   \brief    CAN bus database
-*   \date     20240905
+*   \date     20240924
 *   \author   
 *   \Applics Studio
 *
@@ -33,43 +33,43 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //  (16 Bit)                    (0-63)             (1-32)                               (0=Intel, 1=Motorola)                                                              
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-{   AUXIO6_TCM_CMD              ,0                 ,2               ,UINT               ,0                              ,                    },   //CMD_C3                 
-{   AUXIO6_TCM_CMD              ,2                 ,2               ,UINT               ,0                              ,                    },   //CMD_C2                 
-{   AUXIO6_TCM_CMD              ,4                 ,2               ,UINT               ,0                              ,                    },   //CMD_C1                 
-{   AUXIO6_TCM_CMD              ,6                 ,2               ,UINT               ,0                              ,                    },   //CMD_B1                 
-{   AUXIO6_TCM_CMD              ,8                 ,2               ,UINT               ,0                              ,                    },   //CMD_B8                 
-{   AUXIO6_TCM_CMD              ,10                ,2               ,UINT               ,0                              ,                    },   //CMD_C8                 
-{   AUXIO6_TCM_CMD              ,12                ,2               ,UINT               ,0                              ,                    },   //CMD_C7                 
-{   AUXIO6_TCM_CMD              ,14                ,2               ,UINT               ,0                              ,                    },   //CMD_C6                 
-{   AUXIO7_TCM_STATUS           ,0                 ,2               ,UINT               ,0                              ,                    },   //STATUS_C3              
-{   AUXIO7_TCM_STATUS           ,2                 ,2               ,UINT               ,0                              ,                    },   //STATUS_C2              
-{   AUXIO7_TCM_STATUS           ,4                 ,2               ,UINT               ,0                              ,                    },   //STATUS_C1              
-{   AUXIO7_TCM_STATUS           ,6                 ,2               ,UINT               ,0                              ,                    },   //STATUS_B1              
-{   AUXIO7_TCM_STATUS           ,8                 ,2               ,UINT               ,0                              ,                    },   //STATUS_B8              
-{   AUXIO7_TCM_STATUS           ,10                ,2               ,UINT               ,0                              ,                    },   //STATUS_C8              
-{   AUXIO7_TCM_STATUS           ,12                ,2               ,UINT               ,0                              ,                    },   //STATUS_C7              
-{   AUXIO7_TCM_STATUS           ,14                ,2               ,UINT               ,0                              ,                    },   //STATUS_C6              
-{   AUXIO7_TCM_STATUS           ,16                ,2               ,UINT               ,0                              ,                    },   //STATUS_B6              
-{   AUXIO7_TCM_STATUS           ,18                ,2               ,UINT               ,0                              ,                    },   //STATUS_A6              
-{   AUXIO_8_CURRENTS            ,0                 ,8               ,UINT               ,0                              ,                    },   //CUR_C3                 
-{   AUXIO_8_CURRENTS            ,8                 ,8               ,UINT               ,0                              ,                    },   //CUR_C2                 
-{   AUXIO_8_CURRENTS            ,16                ,8               ,UINT               ,0                              ,                    },   //CUR_C1                 
-{   AUXIO_8_CURRENTS            ,24                ,8               ,UINT               ,0                              ,                    },   //CUR_B1                 
-{   AUXIO_8_CURRENTS            ,32                ,8               ,UINT               ,0                              ,                    },   //CUR_B8                 
-{   AUXIO_8_CURRENTS            ,40                ,8               ,UINT               ,0                              ,                    },   //CUR_C8                 
-{   AUXIO_8_CURRENTS            ,48                ,8               ,UINT               ,0                              ,                    },   //CUR_C7                 
-{   AUXIO_8_CURRENTS            ,56                ,8               ,UINT               ,0                              ,                    },   //CUR_C6                 
-{   AUXIO7_TCM_STATUS           ,20                ,2               ,UINT               ,0                              ,                    },   //STATUS_A5              
-{   AUXIO7_TCM_STATUS           ,22                ,2               ,UINT               ,0                              ,                    },   //STATUS_C4              
-{   AUXIO7_TCM_STATUS           ,24                ,2               ,UINT               ,0                              ,                    },   //STATUS_A4              
-{   AUXIO7_TCM_STATUS           ,26                ,2               ,UINT               ,0                              ,                    },   //STATUS_A3              
-{   AUXIO6_TCM_CMD              ,16                ,2               ,UINT               ,0                              ,                    },   //CMD_B6                 
-{   AUXIO6_TCM_CMD              ,18                ,2               ,UINT               ,0                              ,                    },   //CMD_A6                 
-{   AUXIO6_TCM_CMD              ,20                ,2               ,UINT               ,0                              ,                    },   //CMD_A5                 
-{   AUXIO6_TCM_CMD              ,22                ,2               ,UINT               ,0                              ,                    },   //CMD_C4                 
-{   AUXIO6_TCM_CMD              ,24                ,2               ,UINT               ,0                              ,                    },   //CMD_A4                 
-{   AUXIO6_TCM_CMD              ,26                ,2               ,UINT               ,0                              ,                    },   //CMD_A3                 
-{   AUXIO7_TCM_STATUS           ,32                ,32              ,UINT               ,0                              ,                    },   //STATUS_TEST            
+{   AUXIO2_TCM_CMD              ,0                 ,2               ,UINT               ,0                              ,                    },   //CMD_C3                 
+{   AUXIO2_TCM_CMD              ,2                 ,2               ,UINT               ,0                              ,                    },   //CMD_C2                 
+{   AUXIO2_TCM_CMD              ,4                 ,2               ,UINT               ,0                              ,                    },   //CMD_C1                 
+{   AUXIO2_TCM_CMD              ,6                 ,2               ,UINT               ,0                              ,                    },   //CMD_B1                 
+{   AUXIO2_TCM_CMD              ,8                 ,2               ,UINT               ,0                              ,                    },   //CMD_B8                 
+{   AUXIO2_TCM_CMD              ,10                ,2               ,UINT               ,0                              ,                    },   //CMD_C8                 
+{   AUXIO2_TCM_CMD              ,12                ,2               ,UINT               ,0                              ,                    },   //CMD_C7                 
+{   AUXIO2_TCM_CMD              ,14                ,2               ,UINT               ,0                              ,                    },   //CMD_C6                 
+{   AUXIO1_TCM_STATUS           ,0                 ,2               ,UINT               ,0                              ,                    },   //STATUS_C3              
+{   AUXIO1_TCM_STATUS           ,2                 ,2               ,UINT               ,0                              ,                    },   //STATUS_C2              
+{   AUXIO1_TCM_STATUS           ,4                 ,2               ,UINT               ,0                              ,                    },   //STATUS_C1              
+{   AUXIO1_TCM_STATUS           ,6                 ,2               ,UINT               ,0                              ,                    },   //STATUS_B1              
+{   AUXIO1_TCM_STATUS           ,8                 ,2               ,UINT               ,0                              ,                    },   //STATUS_B8              
+{   AUXIO1_TCM_STATUS           ,10                ,2               ,UINT               ,0                              ,                    },   //STATUS_C8              
+{   AUXIO1_TCM_STATUS           ,12                ,2               ,UINT               ,0                              ,                    },   //STATUS_C7              
+{   AUXIO1_TCM_STATUS           ,14                ,2               ,UINT               ,0                              ,                    },   //STATUS_C6              
+{   AUXIO1_TCM_STATUS           ,16                ,2               ,UINT               ,0                              ,                    },   //STATUS_B6              
+{   AUXIO1_TCM_STATUS           ,18                ,2               ,UINT               ,0                              ,                    },   //STATUS_A6              
+{   AUXIO6_CURRENTS             ,0                 ,8               ,UINT               ,0                              ,                    },   //CUR_C3                 
+{   AUXIO6_CURRENTS             ,8                 ,8               ,UINT               ,0                              ,                    },   //CUR_C2                 
+{   AUXIO6_CURRENTS             ,16                ,8               ,UINT               ,0                              ,                    },   //CUR_C1                 
+{   AUXIO6_CURRENTS             ,24                ,8               ,UINT               ,0                              ,                    },   //CUR_B1                 
+{   AUXIO6_CURRENTS             ,32                ,8               ,UINT               ,0                              ,                    },   //CUR_B8                 
+{   AUXIO6_CURRENTS             ,40                ,8               ,UINT               ,0                              ,                    },   //CUR_C8                 
+{   AUXIO6_CURRENTS             ,48                ,8               ,UINT               ,0                              ,                    },   //CUR_C7                 
+{   AUXIO6_CURRENTS             ,56                ,8               ,UINT               ,0                              ,                    },   //CUR_C6                 
+{   AUXIO1_TCM_STATUS           ,20                ,2               ,UINT               ,0                              ,                    },   //STATUS_A5              
+{   AUXIO1_TCM_STATUS           ,22                ,2               ,UINT               ,0                              ,                    },   //STATUS_C4              
+{   AUXIO1_TCM_STATUS           ,24                ,2               ,UINT               ,0                              ,                    },   //STATUS_A4              
+{   AUXIO1_TCM_STATUS           ,26                ,2               ,UINT               ,0                              ,                    },   //STATUS_A3              
+{   AUXIO2_TCM_CMD              ,16                ,2               ,UINT               ,0                              ,                    },   //CMD_B6                 
+{   AUXIO2_TCM_CMD              ,18                ,2               ,UINT               ,0                              ,                    },   //CMD_A6                 
+{   AUXIO2_TCM_CMD              ,20                ,2               ,UINT               ,0                              ,                    },   //CMD_A5                 
+{   AUXIO2_TCM_CMD              ,22                ,2               ,UINT               ,0                              ,                    },   //CMD_C4                 
+{   AUXIO2_TCM_CMD              ,24                ,2               ,UINT               ,0                              ,                    },   //CMD_A4                 
+{   AUXIO2_TCM_CMD              ,26                ,2               ,UINT               ,0                              ,                    },   //CMD_A3                 
+{   AUXIO1_TCM_STATUS           ,32                ,32              ,UINT               ,0                              ,                    },   //STATUS_TEST            
 };
 
 
@@ -89,9 +89,9 @@
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //  8 Bit                    (32 Bit)              (0,3)              (0,1)           (32 Bit)           (32 Bit)           (0-15)                (0,1)             (NONE,CAN_BUS_x)           (29bit)               0-62                0-8                  0-255             ms                                                
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-{   CAN_BUS_0                ,0x189D5A35           ,1                 ,0              ,100               ,100               ,8                    ,0                ,NONE                      ,0x0                  ,0                  ,0                   ,0                ,0               },  //AUXIO6_TCM_CMD             
-{   CAN_BUS_0                ,0x189C5A35           ,1                 ,0              ,100               ,100               ,8                    ,1                ,NONE                      ,0x0                  ,0                  ,0                   ,0                ,0               },  //AUXIO7_TCM_STATUS          
-{   CAN_BUS_0                ,0x189B5A35           ,1                 ,0              ,100               ,100               ,8                    ,1                ,NONE                      ,0x0                  ,0                  ,0                   ,0                ,0               },  //AUXIO_8_CURRENTS           
+{   CAN_BUS_0                ,0x18A7355A           ,1                 ,0              ,100               ,100               ,8                    ,0                ,NONE                      ,0x0                  ,0                  ,0                   ,0                ,0               },  //AUXIO2_TCM_CMD             
+{   CAN_BUS_0                ,0x18FED935           ,1                 ,0              ,100               ,100               ,8                    ,1                ,NONE                      ,0x0                  ,0                  ,0                   ,0                ,0               },  //AUXIO1_TCM_STATUS          
+{   CAN_BUS_0                ,0x189D5A35           ,1                 ,0              ,100               ,100               ,8                    ,1                ,NONE                      ,0x0                  ,0                  ,0                   ,0                ,0               },  //AUXIO6_CURRENTS            
 };
 
  volatile const can_bus_db_const_typ can_bus_db_const[CAN_BUS_MAX+1]__attribute__((section(".rodata#"))) = 
