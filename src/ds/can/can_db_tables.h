@@ -6,7 +6,7 @@
 /** \file     can_db_tables.h
 *   \brief    CAN bus database
 *
-*   \date     20240924
+*   \date     20250424
 *   \author   ParameterTool
 *
 *   \platform HCS08DZ / HCS12XE / HCS12XD / HCS12P
@@ -54,8 +54,8 @@
 
 #ifdef USER_CAN_FILTER_ACTIVE
 
-    #define CAN0_FILTER_A 0x18A7355A
-    #define CAN0_FILTER_B 0x18A7355A
+    #define CAN0_FILTER_A 0x18A7035A
+    #define CAN0_FILTER_B 0x18A7035A
     #define CAN0_MASK_A   0x0
     #define CAN0_MASK_B   0x0
     #define CAN0_MASK_DIVISION BIOS_CAN_ID_EXT_A_AND_B

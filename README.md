@@ -7,7 +7,7 @@ CAN MESSAGES:
 {RECEIVE}
 
 [AUXIO7_TCM_STATUS]\
-ID=189C5A35h	// CAN0\
+ID=18FED903h	// CAN0\
 Type=Extended\
 DLC=8\
 CycleTime=100\
@@ -27,7 +27,7 @@ Var=STATUS_A4 unsigned 24,2 /p:0\
 Var=STATUS_A3 unsigned 26,2 /p:0
 
 [AUXIO_8_CURRENTS]\
-ID=189B5A35h	// CAN0\
+ID=189D5A03h	// CAN0\
 Type=Extended\
 DLC=8\
 CycleTime=100\
@@ -43,7 +43,7 @@ Var=CUR_C6 unsigned 56,8 /f:10 /u:mA /p:0
 {SEND}
 
 [AUXIO6_TCM_CMD]\
-ID=189D5A35h	// CAN0\
+ID=18A7035Ah	// CAN0\
 Type=Extended\
 DLC=8\
 CycleTime=100\

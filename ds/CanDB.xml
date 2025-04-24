@@ -4,7 +4,9 @@
     <Capacity>64</Capacity>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>0</BitStart>
+      <BitStartString>0</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -18,25 +20,33 @@
         <BitRateSwitch>false</BitRateSwitch>
         <CANBusGW>NONE</CANBusGW>
         <CanBusNr>CAN_BUS_0</CanBusNr>
-        <CanID>0x18A7355A</CanID>
+        <CanID>0x18A7035A</CanID>
         <CanIDMask>0</CanIDMask>
         <DLC>8</DLC>
         <IdentityGuid>91c6ca8c-6da8-4460-aedf-041d0113a416</IdentityGuid>
-        <Message>Duplicate CANID. Please choose a unique CanID.</Message>
         <MuxLength>0</MuxLength>
+        <MuxLengthString>0</MuxLengthString>
+        <MuxName>0</MuxName>
         <MuxStart>0</MuxStart>
+        <MuxStartString>0</MuxStartString>
         <MuxVal>0</MuxVal>
+        <MuxValString>0</MuxValString>
         <Send>false</Send>
         <SendMaxMS>100</SendMaxMS>
+        <SendMaxMSString>100</SendMaxMSString>
         <SendMinMS>100</SendMinMS>
+        <SendMinMSString>100</SendMinMSString>
         <Timeout>0</Timeout>
+        <TimeoutString>0</TimeoutString>
         <Type>1</Type>
       </SelectedCanTelegramm>
       <VariableName>CMD_C3</VariableName>
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>2</BitStart>
+      <BitStartString>2</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -51,7 +61,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>4</BitStart>
+      <BitStartString>4</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -66,7 +78,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>6</BitStart>
+      <BitStartString>6</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -81,7 +95,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>8</BitStart>
+      <BitStartString>8</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -96,7 +112,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>10</BitStart>
+      <BitStartString>10</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -111,7 +129,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>12</BitStart>
+      <BitStartString>12</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -126,7 +146,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>14</BitStart>
+      <BitStartString>14</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -141,7 +163,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>0</BitStart>
+      <BitStartString>0</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -155,25 +179,33 @@
         <BitRateSwitch>false</BitRateSwitch>
         <CANBusGW>NONE</CANBusGW>
         <CanBusNr>CAN_BUS_0</CanBusNr>
-        <CanID>0x18FED935</CanID>
+        <CanID>0x18FED903</CanID>
         <CanIDMask>0</CanIDMask>
         <DLC>8</DLC>
         <IdentityGuid>aff73bd8-359a-432d-8ba9-e630c0b8bc9e</IdentityGuid>
-        <Message>Send period max must be more then min</Message>
         <MuxLength>0</MuxLength>
+        <MuxLengthString>0</MuxLengthString>
+        <MuxName>0</MuxName>
         <MuxStart>0</MuxStart>
+        <MuxStartString>0</MuxStartString>
         <MuxVal>0</MuxVal>
+        <MuxValString>0</MuxValString>
         <Send>true</Send>
         <SendMaxMS>100</SendMaxMS>
+        <SendMaxMSString>100</SendMaxMSString>
         <SendMinMS>100</SendMinMS>
+        <SendMinMSString>100</SendMinMSString>
         <Timeout>0</Timeout>
+        <TimeoutString>0</TimeoutString>
         <Type>1</Type>
       </SelectedCanTelegramm>
       <VariableName>STATUS_C3</VariableName>
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>2</BitStart>
+      <BitStartString>2</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -188,7 +220,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>4</BitStart>
+      <BitStartString>4</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -203,7 +237,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>6</BitStart>
+      <BitStartString>6</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -218,7 +254,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>8</BitStart>
+      <BitStartString>8</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -233,7 +271,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>10</BitStart>
+      <BitStartString>10</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -248,7 +288,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>12</BitStart>
+      <BitStartString>12</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -263,7 +305,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>14</BitStart>
+      <BitStartString>14</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -278,7 +322,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>16</BitStart>
+      <BitStartString>16</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -293,7 +339,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>18</BitStart>
+      <BitStartString>18</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -308,7 +356,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>8</BitLength>
+      <BitLengthString>8</BitLengthString>
       <BitStart>0</BitStart>
+      <BitStartString>0</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -322,25 +372,33 @@
         <BitRateSwitch>false</BitRateSwitch>
         <CANBusGW>NONE</CANBusGW>
         <CanBusNr>CAN_BUS_0</CanBusNr>
-        <CanID>0x189D5A35</CanID>
+        <CanID>0x189D5A03</CanID>
         <CanIDMask>0</CanIDMask>
         <DLC>8</DLC>
         <IdentityGuid>a3b695cd-87ea-40cc-a715-f113b0f8327d</IdentityGuid>
-        <Message>Duplicate CANID. Please choose a unique CanID.</Message>
         <MuxLength>0</MuxLength>
+        <MuxLengthString>0</MuxLengthString>
+        <MuxName>0</MuxName>
         <MuxStart>0</MuxStart>
+        <MuxStartString>0</MuxStartString>
         <MuxVal>0</MuxVal>
+        <MuxValString>0</MuxValString>
         <Send>true</Send>
         <SendMaxMS>100</SendMaxMS>
+        <SendMaxMSString>100</SendMaxMSString>
         <SendMinMS>100</SendMinMS>
+        <SendMinMSString>100</SendMinMSString>
         <Timeout>0</Timeout>
+        <TimeoutString>0</TimeoutString>
         <Type>1</Type>
       </SelectedCanTelegramm>
       <VariableName>CUR_C3</VariableName>
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>8</BitLength>
+      <BitLengthString>8</BitLengthString>
       <BitStart>8</BitStart>
+      <BitStartString>8</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -355,7 +413,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>8</BitLength>
+      <BitLengthString>8</BitLengthString>
       <BitStart>16</BitStart>
+      <BitStartString>16</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -370,7 +430,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>8</BitLength>
+      <BitLengthString>8</BitLengthString>
       <BitStart>24</BitStart>
+      <BitStartString>24</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -385,7 +447,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>8</BitLength>
+      <BitLengthString>8</BitLengthString>
       <BitStart>32</BitStart>
+      <BitStartString>32</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -400,7 +464,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>8</BitLength>
+      <BitLengthString>8</BitLengthString>
       <BitStart>40</BitStart>
+      <BitStartString>40</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -415,7 +481,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>8</BitLength>
+      <BitLengthString>8</BitLengthString>
       <BitStart>48</BitStart>
+      <BitStartString>48</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -430,7 +498,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>8</BitLength>
+      <BitLengthString>8</BitLengthString>
       <BitStart>56</BitStart>
+      <BitStartString>56</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -445,7 +515,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>20</BitStart>
+      <BitStartString>20</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -460,7 +532,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>22</BitStart>
+      <BitStartString>22</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -475,7 +549,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>24</BitStart>
+      <BitStartString>24</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -490,7 +566,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>26</BitStart>
+      <BitStartString>26</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -505,7 +583,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>16</BitStart>
+      <BitStartString>16</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -520,7 +600,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>18</BitStart>
+      <BitStartString>18</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -535,7 +617,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>20</BitStart>
+      <BitStartString>20</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -550,7 +634,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>22</BitStart>
+      <BitStartString>22</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -565,7 +651,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>24</BitStart>
+      <BitStartString>24</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -580,7 +668,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>2</BitLength>
+      <BitLengthString>2</BitLengthString>
       <BitStart>26</BitStart>
+      <BitStartString>26</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
@@ -595,7 +685,9 @@
     </CanDataPoint>
     <CanDataPoint>
       <BitLength>32</BitLength>
+      <BitLengthString>32</BitLengthString>
       <BitStart>32</BitStart>
+      <BitStartString>32</BitStartString>
       <DataFormat>Intel</DataFormat>
       <DataType>UINT</DataType>
       <DataTypeLongName>UnsignedInteger</DataTypeLongName>
